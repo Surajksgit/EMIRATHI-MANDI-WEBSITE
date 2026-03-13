@@ -104,8 +104,8 @@ h1, h2, h3, h4, h5, h6, .serif {
 
 .logo-text {
     font-family: var(--font-serif);
+    color: var(--accent-color);
     font-size: 1.8rem;
-    font-style: italic;
     font-weight: 400;
     letter-spacing: 0.05em;
 }

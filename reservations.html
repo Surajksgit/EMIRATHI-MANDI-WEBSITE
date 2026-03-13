@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations | EMIRATHI'S MANDI</title>
+    <!-- icon -->
+    <link rel="icon" href="logo/emirathiicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS (Internalized index.html styles for exact match) -->
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --text-color: #f5f5f5;
+            --accent-color: #d4af37;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --cursor-size: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Typography Base */
+        h1, h2, h3, h4, h5, h6, .serif {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--cursor-size);
+            height: var(--cursor-size);
+            background-color: var(--text-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.4s ease;
+        }
+
+        .cursor.hovering {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: invert(1) blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            mix-blend-mode: normal;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .logo-text {
+            font-family: var(--font-serif);
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        /* Hero (Exact Index Match) */
+        .hero {
+            height: 120vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding-top: 10vh;
+        }
+
+        .hero-text {
+            text-align: center;
+            z-index: 10;
+            margin-bottom: -7vh;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 14vw, 15rem);
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-title .line {
+            overflow: hidden;
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            transform: translateY(100%);
+        }
+
+        .hero-img-container {
+            width: 60%;
+            height: 70vh;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Form Section (Asymmetric Grid Match) */
+        .section-asymmetric {
+            padding: 15vh 5% 25vh 5%;
+            background-color: var(--bg-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .grid-asymmetric {
+            display: grid;
+            grid-template-columns: 4fr 7fr;
+            gap: 8vw;
+            align-items: start;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 7vw, 9rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Form Elements */
+        .booking-form {
+            display: grid;
+            gap: 2.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+        }
+
+        input, select, textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Preferences Selection */
+        .preference-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .pref-box {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .pref-box.active {
+            border-color: var(--accent-color);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .pref-box h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+        }
+
+        /* Policy Section (Testimonial Card Match) */
+        .policies {
+            padding: 20vh 5%;
+            background-color: var(--bg-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4vw;
+            margin-top: 10vh;
+        }
+
+        .policy-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 4rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.5s ease;
+        }
+
+        .policy-card:hover {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .policy-num {
+            font-family: var(--font-serif);
+            color: var(--accent-color);
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .policy-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Footer */
+        .footer {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #050505;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-title {
+            font-size: clamp(4rem, 11vw, 14rem);
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            line-height: 0.8;
+            cursor: pointer;
+        }
+
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-asymmetric, .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links { display: none; }
+            .hero-img-container { width: 90%; }
+            .booking-form { padding: 2rem; }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo magnetic" data-strength="20">
+            <img src="logo/emirathiicon.png" alt="Emirathi's Mandi Logo" class="logo-img">
+            <span class="logo-text">EMIRATHI'S MANDI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about" class="magnetic" data-strength="20">Vision</a></li>
+            <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
+            <li><a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a></li>
+            <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
+        </ul>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word">Reserve</span></span>
+                        <span class="line"><span class="word">Your</span></span>
+                        <span class="line"><span class="word">Dine-in</span></span>
+                        <span class="line"><span class="word">Majlis</span></span>
+                    </h1>
+                </div>
+                <div class="hero-img-container">
+                    <img src="galary/seats1.png" class="hero-img" alt="Interior ambiance">
+                </div>
+            </section>
+
+            <!-- Form Section -->
+            <section class="section-asymmetric">
+                <div class="container grid-asymmetric">
+                    <div class="intro-col">
+                        <h2 class="section-title">Table<br>Reservations</h2>
+                        <p style="color: #888; margin-bottom: 2rem; max-width: 400px;">Indulge in an atmosphere where every detail is curated for your comfort. Please provide your details to request a seating.</p>
+                    </div>
+
+                    <form class="booking-form" id="reservationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" required id="date">
+                            </div>
+                            <div class="form-group">
+                                <label>Time</label>
+                                <select required id="time">
+                                    <option value="" disabled selected>Choose Time</option>
+                                    <option>12:30 PM</option>
+                                    <option>01:30 PM</option>
+                                    <option>07:30 PM</option>
+                                    <option>08:30 PM</option>
+                                    <option>09:30 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" placeholder="John Doe" required id="name">
+                            </div>
+                            <div class="form-group">
+                                <label>Guests</label>
+                                <input type="number" min="1" max="20" value="2" required id="guests">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Seating Preference</label>
+                            <div class="preference-grid">
+                                <div class="pref-box active" onclick="setPref('Table', this)">
+                                    <h4>Dine-in</h4>
+                                </div>
+                                <div class="pref-box" onclick="setPref('Majlis', this)">
+                                    <h4>Majlis</h4>
+                                </div>
+                            </div>
+                            <input type="hidden" id="seating" value="Table">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" placeholder="+91 ..." required id="phone">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="email@example.com" required id="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Special Requests</label>
+                            <textarea rows="3" placeholder="Allergies, celebrations, etc."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary magnetic" data-strength="30">Confirm Request</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Policy Section (Styled like Testimonials) -->
+            <section class="policies">
+                <div class="container">
+                    <h2 class="section-title">Reservation<br>Policies</h2>
+                    <div class="policy-grid">
+                        <div class="policy-card">
+                            <span class="policy-num">01</span>
+                            <h3 class="policy-title">Punctuality</h3>
+                            <p style="color: #777;">We hold your reserved table or Majlis for exactly 15 minutes. Beyond this, the slot will be released to waiting guests.</p>
+                        </div>
+                        <div class="policy-card">
+                            <span class="policy-num">02</span>
+                            <h3 class="policy-title">The Majlis</h3>
+                            <p style="color: #777;">Traditional floor seating is highly requested. We prioritize larger groups (4+) for Majlis assignments during peak hours.</p>
+                        </div>
+                        <div class="policy-card">
+                            <span class="policy-num">03</span>
+                            <h3 class="policy-title">Confirmation</h3>
+                            <p style="color: #777;">Submitting this form is a request. Our manager will call you within 30 minutes to confirm your availability.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">EMIRATHI'S</h2>
+                <div style="margin-top: 4rem; display: flex; gap: 3rem; opacity: 0.5;">
+                    <a href="index.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;">BACK HOME</a>
+                    <a href="location.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;">FIND US</a>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <div class="success-overlay" id="success">
+        <h2 class="section-title">Request<br>Received</h2>
+        <p style="margin: 2rem 0; opacity: 0.6;">We'll call you shortly to confirm.</p>
+        <a href="index.html" class="btn-primary" style="text-decoration: none;">Return Home</a>
+    </div>
+
+    <script>
+        // Init Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Cursor
+        const cursor = document.querySelector('.cursor');
+        window.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+        });
+
+        document.querySelectorAll('a, button, input, select, .magnetic, .pref-box').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+
+        // Magnetic
+        document.querySelectorAll('.magnetic').forEach(el => {
+            el.addEventListener('mousemove', function(e) {
+                const s = this.dataset.strength || 20;
+                const r = this.getBoundingClientRect();
+                gsap.to(this, {
+                    x: (e.clientX - r.left - r.width/2) * (s/100),
+                    y: (e.clientY - r.top - r.height/2) * (s/100),
+                    duration: 0.6
+                });
+            });
+            el.addEventListener('mouseleave', function() {
+                gsap.to(this, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
+            });
+        });
+
+        // Animations
+        window.onload = () => {
+            gsap.to(".word", {
+                y: 0,
+                duration: 1.2,
+                stagger: 0.1,
+                ease: "power4.out"
+            });
+            gsap.from(".hero-img", {
+                scale: 1.3,
+                duration: 2,
+                ease: "power2.out"
+            });
+            
+            // Parallax Hero
+            gsap.to(".hero-img", {
+                scrollTrigger: {
+                    trigger: ".hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                },
+                y: 150
+            });
+        };
+
+        function setPref(v, el) {
+            document.getElementById('seating').value = v;
+            document.querySelectorAll('.pref-box').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        document.getElementById('reservationForm').onsubmit = (e) => {
+            e.preventDefault();
+            gsap.to("#success", { display: "flex", opacity: 1, duration: 0.5 });
+        };
+    </script>
+</body>
+</html>
