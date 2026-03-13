@@ -192,3 +192,47 @@ gsap.from('.menu-items li', {
         start: 'top 75%'
     }
 });
+
+
+
+
+
+// Testimonials Scroll Animation
+gsap.from(".testimonial-card", {
+    scrollTrigger: {
+        trigger: ".testimonial-grid",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.2,
+    ease: "power4.out"
+});
+
+// If you haven't implemented the "Magnetic" effect yet:
+const magneticItems = document.querySelectorAll('.magnetic');
+magneticItems.forEach((el) => {
+    el.addEventListener('mousemove', function(e) {
+        const strength = this.getAttribute('data-strength') || 20;
+        const boundingRect = this.getBoundingClientRect();
+        const relX = e.pageX - boundingRect.left - window.scrollX;
+        const relY = e.pageY - boundingRect.top - window.scrollY;
+
+        gsap.to(this, {
+            x: (relX - boundingRect.width / 2) / boundingRect.width * strength,
+            y: (relY - boundingRect.height / 2) / boundingRect.height * strength,
+            duration: 0.6,
+            ease: "power2.out"
+        });
+    });
+    el.addEventListener('mouseleave', function() {
+        gsap.to(this, {
+            x: 0,
+            y: 0,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.3)"
+        });
+    });
+});
