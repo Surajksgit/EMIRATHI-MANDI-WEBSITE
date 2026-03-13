@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - EMIRATHI'S MANDI</title>
+    <!-- icon -->
+    <link rel="icon" href="logo/emirathiicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+    <style>
+        /* Specific styles for the gallery page */
+        .gallery-section {
+            padding: 5vh 5% 15vh 5%;
+            background-color: var(--bg-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+            filter: brightness(0.85);
+            will-change: transform;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Create aesthetic masonry layout feel */
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(4) { grid-column: span 2; }
+        .gallery-item:nth-child(7) { grid-row: span 2; }
+        .gallery-item:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(13) { grid-column: span 2; grid-row: span 2; }
+        
+        /* Hero tweaks */
+        .hero {
+            height: 100vh;
+        }
+        
+        .hero-img-container {
+            height: 60vh;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-auto-rows: 200px;
+                gap: 1rem;
+            }
+            .hero {
+                height: 50vh;
+            }
+            .hero-img-container {
+                height: 30vh;
+                margin-top: 5vh;
+            }
+            .gallery-section {
+                padding-top: 10vh;
+            }
+            /* Reset specific spans on mobile for vertical scrolling flow */
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(7),
+            .gallery-item:nth-child(8),
+            .gallery-item:nth-child(10),
+            .gallery-item:nth-child(13) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Reactive Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo magnetic" data-strength="20">
+            <img src="logo/emirathiicon.png" alt="Emirathi's Mandi Logo" class="logo-img">
+            <span class="logo-text">EMIRATHI'S MANDI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about" class="magnetic" data-strength="20">Vision</a></li>
+            <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
+            <li><a href="viewmenu.html" class="magnetic" data-strength="20">Visual Menu</a></li>
+            <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
+            <li><a href="index.html#reservations" class="magnetic btn-primary" data-strength="40">Reservations</a></li>
+        </ul>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- 1. Hero Section -->
+            <section class="hero">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word">Our</span></span>
+                        <span class="line"><span class="word">Gallery</span></span>
+                    </h1>
+                </div>
+                <!-- Hero image that will scale up/parallax -->
+                <div class="hero-img-container">
+                    <img src="galary/nighttime.png" class="hero-img" alt="Gallery background">
+                </div>
+            </section>
+
+            <!-- 2. Gallery Section -->
+            <section class="gallery-section" id="gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="galary/seats.png" alt="Restaurant Interior"></div>
+                    <div class="gallery-item"><img src="galary/masalashawayamandinew2.png" alt="Chef preparing mandi"></div>
+                    <div class="gallery-item"><img src="galary/chicken.jpeg" alt="Chicken Dish"></div>
+                    <div class="gallery-item"><img src="galary/emirathi_interior2.png" alt="Majlis Area"></div>
+                    <div class="gallery-item"><img src="galary/beef.jpeg" alt="Beef Mandi"></div>
+                    <div class="gallery-item"><img src="galary/food.jpeg" alt="Assorted Food"></div>
+                    <div class="gallery-item"><img src="galary/fish.jpeg" alt="Mandi Detail"></div>
+                    <div class="gallery-item"><img src="galary/emirathi_interior.png" alt="Plated Mandi"></div>
+                    <div class="gallery-item"><img src="galary/interior.jpeg" alt="Dining Room"></div>
+                    <div class="gallery-item"><img src="galary/afghanishawayamandinew.png" alt="Alfam Mandi"></div>
+                    <div class="gallery-item"><img src="galary/lamp1.png" alt="lamp1"></div>
+                    <div class="gallery-item"><img src="galary/lamp2.png" alt="lamp2"></div>
+                    <div class="gallery-item"><img src="galary/majlis.png" alt="majlis"></div>
+                    <div class="gallery-item"><img src="galary/ilove.png" alt="ilove"></div>
+                    <div class="gallery-item"><img src="galary/masalashawaya chicken.png" alt="masalashawaya2"></div>
+                    <div class="gallery-item"><img src="galary/fish1.jpeg" alt="fish1"></div>
+                    <div class="gallery-item"><img src="galary/alfam chickenjpeg.jpeg" alt="alfam chickenjpeg"></div>
+                    <div class="gallery-item"><img src="galary/beefribmandinew.png" alt="beef rib"></div>
+                    <div class="gallery-item"><img src="galary/emirathiimage.jpeg" alt="emirathiimage"></div>
+                    <div class="gallery-item"><img src="galary/chickenmandinew.png" alt="chickenmandinew"></div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer" id="reservations">
+                <h2 class="footer-title magnetic" data-strength="50">Book Majlis</h2>
+                <div class="footer-links">
+                    <a href="index.html" class="magnetic" data-strength="20">Home</a>
+                    <a href="menu.html" class="magnetic" data-strength="20">Menu</a>
+                    <a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a>
+                </div>
+            </footer>
+        </div>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

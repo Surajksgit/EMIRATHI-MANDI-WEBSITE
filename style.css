@@ -1,0 +1,419 @@
+:root {
+    --bg-color: #0b0b0b;
+    --text-color: #f5f5f5;
+    --accent-color: #d4af37;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --cursor-size: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none; /* Hide default for custom cursor */
+}
+
+::selection {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6, .serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+/* Context-Aware Custom Cursor */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    background-color: var(--text-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.4s ease;
+}
+
+.cursor.hovering {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: invert(1) blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    mix-blend-mode: normal;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between image and text */
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.logo-img {
+    height: 60px; /* Adjust size to perfectly fit navbar */
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Buttons */
+.btn-primary {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+}
+
+.btn-secondary {
+    display: inline-block;
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    transition: border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 10vh;
+}
+
+.hero-text {
+    text-align: center;
+    z-index: 10;
+    margin-bottom: -7vh; /* Negative space overlap */
+}
+
+.hero-title {
+    font-size: clamp(4rem, 14vw, 15rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-title .line {
+    overflow: hidden;
+}
+
+.hero-title .word {
+    display: inline-block;
+    transform: translateY(100%);
+}
+
+.hero-img-container {
+    width: 60%;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transform-origin: center top;
+}
+
+.hero-img {
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* About / Cuisine Section */
+.about {
+    padding: 15vh 5% 25vh 5%;
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.grid-asymmetric {
+    display: grid;
+    grid-template-columns: 4fr 7fr;
+    gap: 12vw;
+    align-items: center;
+}
+
+.section-title {
+    font-size: clamp(3rem, 7vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+}
+
+.body-text {
+    font-size: clamp(1rem, 1.4vw, 1.35rem);
+    color: #a0a0a0;
+    max-width: 480px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+}
+
+.about-img-reveal {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.reveal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Will be animated by GSAP from 0.9 to 1 */
+}
+
+/* Menu Showcase Section (Parallax & Pinned) */
+.menu-showcase {
+    position: relative;
+    height: 250vh; /* Extra height to create scroll distance while pinned */
+}
+
+.menu-bg {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.menu-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3);
+    transform: scale(1);
+    will-change: transform;
+}
+
+.menu-content {
+    position: relative;
+    z-index: 10;
+    margin-top: -100vh;
+    height: 250vh; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 12%;
+    pointer-events: none; /* Let background scroll events pass if needed */
+}
+
+.menu-panel {
+    background-color: rgba(11, 11, 11, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 6rem 5rem;
+    width: 600px;
+    max-width: 90vw;
+    pointer-events: auto; /* Re-enable pointer events for buttons inside */
+}
+
+.menu-category {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.menu-category::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background-color: var(--text-color);
+}
+
+.menu-items {
+    list-style: none;
+}
+
+.menu-items li {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.item-name {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.item-desc {
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 300;
+}
+
+/* Footer Section */
+.footer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #050505;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-title {
+    font-size: clamp(4rem, 11vw, 14rem);
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: -0.04em;
+    line-height: 0.8;
+}
+
+.footer-links {
+    margin-top: 5rem;
+    display: flex;
+    gap: 4rem;
+}
+
+.footer-links a {
+    color: #777;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--text-color);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .grid-asymmetric {
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .about-img-reveal {
+        height: 60vh;
+    }
+    .menu-content {
+        justify-content: center;
+        padding-right: 0;
+    }
+    .hero-img-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-panel {
+        padding: 4rem 2.5rem;
+    }
+}
