@@ -172,12 +172,20 @@
             object-position: center;
         }
 
-        /* Form Section (Asymmetric Grid Match) */
+        /* Form Section (Centered & Aligned) */
         .section-asymmetric {
-            padding: 15vh 5% 25vh 5%;
+            padding: 15vh 5% 15vh 5%;
             background-color: var(--bg-color);
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .booking-container {
+            width: 60%;
+            max-width: 1400px;
         }
 
         .container {
@@ -187,8 +195,8 @@
 
         .grid-asymmetric {
             display: grid;
-            grid-template-columns: 4fr 7fr;
-            gap: 8vw;
+            grid-template-columns: 1fr;
+            gap: 4rem;
             align-items: start;
         }
 
@@ -196,7 +204,17 @@
             font-size: clamp(3rem, 7vw, 9rem);
             line-height: 0.9;
             letter-spacing: -0.02em;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: block;
         }
 
         /* Form Elements */
@@ -328,9 +346,40 @@
             color: black;
         }
 
-        /* Footer */
+        /* Experience Section */
+        .experience-section {
+            height: 80vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .experience-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            opacity: 0.5;
+            transition: transform 0.1s linear;
+        }
+
+        .experience-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 5%;
+        }
+
+        /* Footer Refinement */
         .footer {
-            height: 100vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -338,6 +387,7 @@
             background-color: #050505;
             position: relative;
             z-index: 10;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer-title {
@@ -360,6 +410,9 @@
         }
 
         @media (max-width: 1024px) {
+            .booking-container {
+                width: 95%;
+            }
             .grid-asymmetric, .policy-grid {
                 grid-template-columns: 1fr;
             }
@@ -615,8 +668,7 @@
                     <h1 class="hero-title">
                         <span class="line"><span class="word">Reserve</span></span>
                         <span class="line"><span class="word">Your</span></span>
-                        <span class="line"><span class="word">Dine-in</span></span>
-                        <span class="line"><span class="word">Majlis</span></span>
+                        <span class="line"><span class="word">Spot</span></span>
                     </h1>
                 </div>
                 <div class="hero-img-container">
@@ -626,11 +678,13 @@
 
             <!-- Form Section -->
             <section class="section-asymmetric">
-                <div class="container grid-asymmetric">
-                    <div class="intro-col">
-                        <h2 class="section-title">Table<br>Reservations</h2>
-                        <p style="color: #888; margin-bottom: 2rem; max-width: 400px;">Indulge in an atmosphere where every detail is curated for your comfort. Please provide your details to request a seating.</p>
-                    </div>
+                <div class="booking-container">
+                    <div class="grid-asymmetric">
+                        <div class="intro-col">
+                            <span class="section-subtitle">Secure Your Spot</span>
+                            <h2 class="section-title">Dine-in/Majlis<br>Reservations</h2>
+                            <p style="color: #666; margin-bottom: 2rem; max-width: 450px; font-weight: 300;">Indulge in an atmosphere where every detail is curated for your comfort. Please provide your details to request a seating.</p>
+                        </div>
 
                     <form class="booking-form" id="reservationForm">
                         <div class="form-row">
@@ -640,7 +694,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Time</label>
-                                <select required id="time">
+                                <select required id="time" style="background-color: #1b1b1b;">
                                     <option value="" disabled selected>Choose Time</option>
                                     <option>12:30 PM</option>
                                     <option>01:30 PM</option>
@@ -696,6 +750,16 @@
                 </div>
             </section>
 
+            <!-- Experience Section -->
+            <section class="experience-section">
+                <img src="galary/majlis.png" class="experience-bg" alt="Majlis Seating">
+                <div class="experience-content">
+                    <span class="section-subtitle" style="color: white; opacity: 0.8;">The Atmosphere</span>
+                    <h2 class="section-title" style="font-size: clamp(3rem, 5vw, 6rem); color: white;">Traditional Elegance</h2>
+                    <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">Experience the warmth of Arabian hospitality in our authentic Majlis seating areas, designed for gatherings and shared moments.</p>
+                </div>
+            </section>
+
             <!-- Policy Section (Styled like Testimonials) -->
             <section class="policies">
                 <div class="container">
@@ -723,9 +787,17 @@
             <footer class="footer">
                 <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">EMIRATHI'S</h2>
                 <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">MANDI</h2>
-                <div style="margin-top: 4rem; display: flex; gap: 3rem; opacity: 0.5;">
-                    <a href="index.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;">BACK HOME</a>
-                    <a href="location.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;">FIND US</a>
+                
+                <div style="margin-top: 3rem; text-align: center;">
+                    <p style="font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.4; margin-bottom: 1.5rem;">CONTACT & LOCATION</p>
+                    <p style="font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 0.5rem;">+91 7025 252 559</p>
+                    <p style="opacity: 0.6; font-size: 0.9rem;">Paruvur Kavala,NH-47, Opposite Simple Energy, Kerala</p>
+                </div>
+
+                <div style=" display: flex; gap: 3rem; opacity: 0.5;">
+                    <a href="index.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">BACK HOME</a>
+                    <a href="menu.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">THE MENU</a>
+                    <a href="location.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">FIND US</a>
                 </div>
             </footer>
         </div>
