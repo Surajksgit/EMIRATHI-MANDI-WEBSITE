@@ -367,6 +367,190 @@
             .hero-img-container { width: 90%; }
             .booking-form { padding: 2rem; }
         }
+
+
+        
+/* Mobile Navigation Styles */
+
+/* 1. Toggle Button Styles */
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 14px;
+    background: none;
+    border: none;
+    cursor: none;
+    /* Let the custom cursor handle it */
+    z-index: 10001;
+    padding: 0;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.4s ease;
+}
+
+/* Toggle Active State (X Animation) */
+.menu-toggle.active .hamburger-line:first-child {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.menu-toggle.active .hamburger-line:last-child {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* 2. Full-Screen Overlay */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    transform: translateY(-100%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-overlay.active {
+    transform: translateY(0);
+}
+
+.mobile-menu-inner {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 4rem;
+}
+
+.mobile-nav-links li {
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.mobile-link {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    line-height: 1.1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: var(--accent-color);
+}
+
+.btn-mobile-cta {
+    display: inline-block;
+    border: 1px solid var(--accent-color);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+}
+
+.mobile-menu-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+.footer-label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.mobile-socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.mobile-socials a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* 3. Media Query to handle Visibility Switch */
+@media (max-width: 768px) {
+
+    /* Hide desktop links */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* Show mobile toggle */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Adjust navbar padding for mobile */
+    .navbar {
+        padding: 1.5rem 5%;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .logo-img {
+        height: 45px;
+    }
+}
+
+.close-menu-btn {
+        position: absolute;
+        top: 2.5rem;
+        right: 5%;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: none; /* Let custom cursor handle it */
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+        z-index: 10002;
+    }
+
+    .close-menu-btn:hover {
+        opacity: 1;
+    }
+
+    .close-menu-btn svg {
+        width: 20px;
+        height: 20px;
+    }
     </style>
 
     <!-- Scripts -->
@@ -382,6 +566,11 @@
             <img src="logo/emirathiicon.png" alt="Emirathi's Mandi Logo" class="logo-img">
             <span class="logo-text">EMIRATHI'S MANDI</span>
         </a>
+
+        <button class="menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
         <ul class="nav-links">
             <li><a href="index.html#about" class="magnetic" data-strength="20">Vision</a></li>
             <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
@@ -389,6 +578,34 @@
             <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
         </ul>
     </nav>
+
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="close-menu-btn" id="mobile-close" aria-label="Close Menu">
+            <span>CLOSE</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="mobile-menu-inner">
+            <ul class="mobile-nav-links">
+                <li><a href="#about" class="mobile-link">Vision</a></li>
+                <li><a href="menu.html" class="mobile-link">Menu</a></li>
+                <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
+                <li><a href="location.html" class="mobile-link">Location</a></li>
+                <li><a href="reservations.html" class="mobile-link btn-mobile-cta">Reservations</a></li>
+            </ul>
+    
+            <div class="mobile-menu-footer">
+                <p class="footer-label">Follow Us</p>
+                <div class="mobile-socials">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main id="smooth-wrapper">
         <div id="smooth-content">
@@ -505,6 +722,7 @@
 
             <footer class="footer">
                 <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">EMIRATHI'S</h2>
+                <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">MANDI</h2>
                 <div style="margin-top: 4rem; display: flex; gap: 3rem; opacity: 0.5;">
                     <a href="index.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;">BACK HOME</a>
                     <a href="location.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em;">FIND US</a>
@@ -591,6 +809,31 @@
             e.preventDefault();
             gsap.to("#success", { display: "flex", opacity: 1, duration: 0.5 });
         };
+
+
+        const toggle = document.getElementById('mobile-toggle');
+        const closeBtn = document.getElementById('mobile-close');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = (state) => {
+            const isOpen = state !== undefined ? state : !menu.classList.contains('active');
+
+            menu.classList.toggle('active', isOpen);
+            toggle.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        // Open/Close via hamburger
+        toggle.addEventListener('click', () => toggleMenu());
+
+        // Close via dedicated button
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close via links
+        links.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
     </script>
 </body>
 </html>

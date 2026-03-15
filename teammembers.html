@@ -141,6 +141,11 @@
             <img src="logo/emirathiicon.png" alt="Emirathi's Mandi Logo" class="logo-img">
             <span class="logo-text">EMIRATHI'S MANDI</span>
         </a>
+
+        <button class="menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
         <ul class="nav-links">
             <li><a href="index.html#about" class="magnetic" data-strength="20">Vision</a></li>
             <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
@@ -150,6 +155,35 @@
             <li><a href="index.html#reservations" class="magnetic btn-primary" data-strength="40">Reservations</a></li>
         </ul>
     </nav>
+
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="close-menu-btn" id="mobile-close" aria-label="Close Menu">
+            <span>CLOSE</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="mobile-menu-inner">
+            <ul class="mobile-nav-links">
+                <li><a href="#about" class="mobile-link">Vision</a></li>
+                <li><a href="menu.html" class="mobile-link">Menu</a></li>
+                <li><a href="viewmenu.html" class="mobile-link">Visual Menu</a></li>
+                <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
+                <li><a href="location.html" class="mobile-link">Location</a></li>
+                <li><a href="reservations.html" class="mobile-link btn-mobile-cta">Reservations</a></li>
+            </ul>
+    
+            <div class="mobile-menu-footer">
+                <p class="footer-label">Follow Us</p>
+                <div class="mobile-socials">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main id="smooth-wrapper">
         <div id="smooth-content">
@@ -224,5 +258,30 @@
     
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const closeBtn = document.getElementById('mobile-close');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = (state) => {
+            const isOpen = state !== undefined ? state : !menu.classList.contains('active');
+
+            menu.classList.toggle('active', isOpen);
+            toggle.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        // Open/Close via hamburger
+        toggle.addEventListener('click', () => toggleMenu());
+
+        // Close via dedicated button
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close via links
+        links.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    </script>
 </body>
 </html>
