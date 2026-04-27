@@ -440,10 +440,42 @@ h1, h2, h3, h4, h5, h6, .serif {
     margin-bottom: 2rem;
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4vw;
+.testimonial-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+}
+
+.testimonial-slider-container {
+    width: 100%;
+    overflow: visible; /* We'll use JS to handle visible range if needed, but for simple slider hidden is safer */
+    overflow: hidden;
+}
+
+.testimonial-grid.slider-track {
+    display: flex;
+    gap: 2vw;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
 
 .testimonial-card {
@@ -454,6 +486,7 @@ h1, h2, h3, h4, h5, h6, .serif {
     flex-direction: column;
     justify-content: space-between;
     min-height: 450px;
+    flex: 0 0 calc(33.333% - 1.34vw); /* Show 3 cards on desktop */
     transition: background 0.5s ease;
 }
 
@@ -499,18 +532,28 @@ h1, h2, h3, h4, h5, h6, .serif {
     margin-top: 0.3rem;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+/* Responsive Testimonials */
+@media (max-width: 1200px) {
+    .testimonial-card {
+        flex: 0 0 calc(50% - 1vw); /* 2 cards */
     }
+}
+
+@media (max-width: 768px) {
     .testimonials-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 2rem;
     }
+    
     .testimonial-card {
+        flex: 0 0 100%; /* 1 card */
         min-height: auto;
+        padding: 3rem 2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.3rem;
     }
 }
 

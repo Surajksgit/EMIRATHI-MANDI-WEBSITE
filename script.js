@@ -197,21 +197,72 @@ gsap.from('.menu-items li', {
 
 
 
+// Testimonials Slider Logic
+const sliderTrack = document.querySelector('.slider-track');
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+let currentIndex = 0;
+
+function updateSlider() {
+    const cardWidth = testimonialCards[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(sliderTrack).gap);
+    const moveDistance = currentIndex * (cardWidth + gap);
+    
+    sliderTrack.style.transform = `translateX(-${moveDistance}px)`;
+    
+    // Optional: Disable buttons at ends
+    prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
+    prevBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+    
+    const visibleCards = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+    const maxIndex = testimonialCards.length - visibleCards;
+    
+    nextBtn.style.opacity = currentIndex >= maxIndex ? "0.3" : "1";
+    nextBtn.style.pointerEvents = currentIndex >= maxIndex ? "none" : "auto";
+}
+
+nextBtn.addEventListener('click', () => {
+    const visibleCards = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+    const maxIndex = testimonialCards.length - visibleCards;
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateSlider();
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+    }
+});
+
+// Update slider on resize to keep alignment
+window.addEventListener('resize', () => {
+    currentIndex = 0; // Reset to start on resize for simplicity
+    updateSlider();
+});
+
+// Initial call
+updateSlider();
+
 // Testimonials Scroll Animation
 gsap.from(".testimonial-card", {
     scrollTrigger: {
-        trigger: ".testimonial-grid",
+        trigger: ".testimonial-slider-container",
         start: "top 80%",
         toggleActions: "play none none reverse"
     },
     y: 100,
     opacity: 0,
     duration: 1.2,
-    stagger: 0.2,
+    stagger: 0.1,
     ease: "power4.out"
 });
 
-// If you haven't implemented the "Magnetic" effect yet:
+// Magnetic effect re-run for all magnetic items
 const magneticItems = document.querySelectorAll('.magnetic');
 magneticItems.forEach((el) => {
     el.addEventListener('mousemove', function(e) {
