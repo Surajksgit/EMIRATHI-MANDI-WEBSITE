@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Menu - EMIRATHI'S MANDI</title>
+    <title>Visual Menu | Explore Our Signature Mandi Dishes | Emirathi's Mandi</title>
+    <meta name="description" content="Feast your eyes on our authentic Arabian Mandi. Browse our visual menu featuring Chicken Mandi, Beef Rib Mandi, and our special Zesty Mandi in Ernakulam.">
+    <link rel="canonical" href="https://emirathimandi.com/viewmenu.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emirathimandi.com/viewmenu.html">
+    <meta property="og:title" content="Visual Menu | Emirathi's Mandi">
+    <meta property="og:description" content="A visual journey through the authentic flavors of Arabian Mandi. View our signature dishes and pricing.">
+    <meta property="og:image" content="https://emirathimandi.com/logo/emirathiicon.png">
     <!-- icon -->
-    <link rel="icon" href="logo/emirathiicon.png">
+    <link rel="icon" href="logo/emirathiicon.png" type="image/png" sizes="32x32">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -220,6 +229,53 @@
             }
         }
     </style>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Emirathi's Mandi Visual Menu",
+      "mainEntityOfPage": "https://emirathimandi.com/viewmenu.html",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Authentic Mandi",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Chicken Mandi",
+              "description": "Tender, slow-roasted chicken served over fragrant, smoky long-grain basmati rice.",
+              "offers": {
+                "@type": "Offer",
+                "price": "690",
+                "priceCurrency": "INR"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Alfaham Mandi",
+              "description": "Charcoal-grilled chicken marinated in a complex blend of rich Arabian spices.",
+              "offers": {
+                "@type": "Offer",
+                "price": "790",
+                "priceCurrency": "INR"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Beef Rib Mandi",
+              "description": "Incredibly rich, marbled, and smoky beef ribs, slow-cooked for hours.",
+              "offers": {
+                "@type": "Offer",
+                "price": "990",
+                "priceCurrency": "INR"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Custom Reactive Cursor -->
@@ -237,7 +293,7 @@
             <span class="hamburger-line"></span>
         </button>
         <ul class="nav-links">
-            <li><a href="index.html#about" class="magnetic" data-strength="20">Vision</a></li>
+            <li><a href="index.html#about" class="magnetic" data-strength="20">About Us</a></li>
             <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
             <li><a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a></li>
             <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
@@ -256,7 +312,7 @@
         </button>
         <div class="mobile-menu-inner">
             <ul class="mobile-nav-links">
-                <li><a href="#about" class="mobile-link">Vision</a></li>
+                <li><a href="#about" class="mobile-link">About Us</a></li>
                 <li><a href="menu.html" class="mobile-link">Menu</a></li>
                 <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
                 <li><a href="location.html" class="mobile-link">Location</a></li>
@@ -266,7 +322,7 @@
             <div class="mobile-menu-footer">
                 <p class="footer-label">Follow Us</p>
                 <div class="mobile-socials">
-                    <a href="#">Instagram</a>
+                    <a href="https://www.instagram.com/emirathi_mandi/">Instagram</a>
                     <a href="#">Facebook</a>
                 </div>
             </div>
@@ -285,7 +341,7 @@
                 </div>
                 <!-- Hero image that will scale up/parallax -->
                 <div class="hero-img-container">
-                    <img src="galary/ambiance1.png" class="hero-img" alt="Mandi signature dish background">
+                    <img src="galary/ambiance1.png" class="hero-img" alt="Authentic Arabian restaurant ambiance at Emirathi's Mandi">
                 </div>
             </section>
 
@@ -299,7 +355,7 @@
                     <!-- Item 1 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/chickenmandinew.png" alt="Chicken Mandi" class="menu-item-img">
+                            <img src="galary/chickenmandinew.png" alt="Traditional Arabian Chicken Mandi with long-grain Basmati rice" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Chicken Mandi</h3>
@@ -328,7 +384,7 @@
                     <!-- Item 2 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/alfammandinew.png" alt="Alfaham Mandi" class="menu-item-img">
+                            <img src="galary/alfammandinew.png" alt="Smoky Alfaham Mandi charcoal-grilled with Arabian spices" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Alfaham Mandi</h3>
@@ -357,7 +413,7 @@
                     <!-- Item 3 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/honeymandinew.png" alt="Honey Mandi" class="menu-item-img">
+                            <img src="galary/honeymandinew.png" alt="Special Honey Mandi - sweet and savory glazed chicken" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Honey Mandi</h3>
@@ -415,7 +471,7 @@
                     <!-- Item 5 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/beefribmandinew.png" alt="Beef Rib Mandi" class="menu-item-img">
+                            <img src="galary/beefribmandinew.png" alt="Tender Beef Rib Mandi - slow-cooked to perfection" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Beef Rib Mandi</h3>
@@ -444,7 +500,7 @@
                     <!-- Item 6 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/afghanishawayamandinew.png" alt="Afghani Shawaya mandi" class="menu-item-img">
+                            <img src="galary/afghanishawayamandinew.png" alt="Afghani Shawaya Mandi with creamy cashew marinade" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Afghani Shawaya</h3>
@@ -473,7 +529,7 @@
                     <!-- Item 7 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/shawayamandinew.png" alt="Shawayamandi" class="menu-item-img">
+                            <img src="galary/shawayamandinew.png" alt="Authentic Shawaya Mandi - traditional Arabian roast chicken" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Shawaya Mandi</h3>
@@ -502,7 +558,7 @@
                     <!-- Item 8 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/masalashawayamandinew2.png" alt="MasalaShawaya mandi" class="menu-item-img">
+                            <img src="galary/masalashawayamandinew2.png" alt="Masala Shawaya Mandi - spicy and flavorful Arabian chicken" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Masala Shawaya Mandi</h3>
@@ -531,7 +587,7 @@
                     <!-- Item 9 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/yemanimandinew.png" alt="Yemani mandi" class="menu-item-img">
+                            <img src="galary/yemanimandinew.png" alt="Yemani Mandi - the classic soul of Arabian tradition" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Yemani Mandi</h3>
@@ -560,7 +616,7 @@
                     <!-- Item 10 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/beefperiperimandi.png" alt="Beef Peri Peri mandi" class="menu-item-img">
+                            <img src="galary/beefperiperimandi.png" alt="Beef Peri Peri Mandi - spicy tender beef with aromatic rice" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Beef Peri Peri Mandi</h3>
@@ -589,7 +645,7 @@
                     <!-- Item 11 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/beefzestymandi.png" alt="Beef Zesty mandi" class="menu-item-img">
+                            <img src="galary/beefzestymandi.png" alt="Beef Zesty Mandi - premium beef with a citrusy spice kick" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Beef Zesty Mandi</h3>
@@ -618,7 +674,7 @@
                     <!-- Item 12 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/emirathimandi.png" alt="Emirathi's Special Zesty mandi" class="menu-item-img">
+                            <img src="galary/emirathimandi.png" alt="Emirathi's Special Zesty Mandi - our signature house favorite" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Emirathi's Special Zesty Mandi</h3>
@@ -647,7 +703,7 @@
                     <!-- Item 13 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/jellikettualfam.png" alt="Jellikettu Alfam Mandi" class="menu-item-img">
+                            <img src="galary/jellikettualfam.png" alt="Jellikettu Alfam Mandi - bold flavors from the heart of Kerala" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Jellikettu Alfam Mandi</h3>
@@ -676,7 +732,7 @@
                     <!-- Item 14 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/jellikettubeefrib.png" alt="Jellikettu Beefrib Mandi" class="menu-item-img">
+                            <img src="galary/jellikettubeefrib.png" alt="Jellikettu Beef Rib Mandi - premium spicy beef ribs" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Jellikettu Beefrib Mandi</h3>
