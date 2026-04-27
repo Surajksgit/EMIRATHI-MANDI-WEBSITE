@@ -203,50 +203,52 @@ const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
 const testimonialCards = document.querySelectorAll('.testimonial-card');
 
-let currentIndex = 0;
+if (sliderTrack && nextBtn && prevBtn && testimonialCards.length > 0) {
+    let currentIndex = 0;
 
-function updateSlider() {
-    const cardWidth = testimonialCards[0].offsetWidth;
-    const gap = parseFloat(getComputedStyle(sliderTrack).gap);
-    const moveDistance = currentIndex * (cardWidth + gap);
-    
-    sliderTrack.style.transform = `translateX(-${moveDistance}px)`;
-    
-    // Optional: Disable buttons at ends
-    prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
-    prevBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
-    
-    const visibleCards = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-    const maxIndex = testimonialCards.length - visibleCards;
-    
-    nextBtn.style.opacity = currentIndex >= maxIndex ? "0.3" : "1";
-    nextBtn.style.pointerEvents = currentIndex >= maxIndex ? "none" : "auto";
-}
-
-nextBtn.addEventListener('click', () => {
-    const visibleCards = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-    const maxIndex = testimonialCards.length - visibleCards;
-    if (currentIndex < maxIndex) {
-        currentIndex++;
-        updateSlider();
+    function updateSlider() {
+        const cardWidth = testimonialCards[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
+        const moveDistance = currentIndex * (cardWidth + gap);
+        
+        sliderTrack.style.transform = `translateX(-${moveDistance}px)`;
+        
+        // Optional: Disable buttons at ends
+        prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
+        prevBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+        
+        const visibleCards = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+        const maxIndex = testimonialCards.length - visibleCards;
+        
+        nextBtn.style.opacity = currentIndex >= maxIndex ? "0.3" : "1";
+        nextBtn.style.pointerEvents = currentIndex >= maxIndex ? "none" : "auto";
     }
-});
 
-prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
+    nextBtn.addEventListener('click', () => {
+        const visibleCards = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+        const maxIndex = testimonialCards.length - visibleCards;
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    // Update slider on resize to keep alignment
+    window.addEventListener('resize', () => {
+        currentIndex = 0; // Reset to start on resize for simplicity
         updateSlider();
-    }
-});
+    });
 
-// Update slider on resize to keep alignment
-window.addEventListener('resize', () => {
-    currentIndex = 0; // Reset to start on resize for simplicity
+    // Initial call
     updateSlider();
-});
-
-// Initial call
-updateSlider();
+}
 
 // Testimonials Scroll Animation
 gsap.from(".testimonial-card", {
