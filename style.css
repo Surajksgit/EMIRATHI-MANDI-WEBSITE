@@ -741,3 +741,99 @@ h1, h2, h3, h4, h5, h6, .serif {
         width: 20px;
         height: 20px;
     }
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--text-color);
+    transform: scale(1.1);
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* WhatsApp CTA Button */
+.whatsapp-cta {
+    position: fixed;
+    bottom: 7.5rem; /* Placed above back-to-top */
+    right: 3rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #25d366; /* WhatsApp Green */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 99;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.whatsapp-cta.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.whatsapp-cta:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #20ba5a;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-cta {
+        bottom: 6rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+}

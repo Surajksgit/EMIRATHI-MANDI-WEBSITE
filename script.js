@@ -287,3 +287,40 @@ magneticItems.forEach((el) => {
         });
     });
 });
+
+// 5. Back to Top & WhatsApp CTA Logic
+const backToTopBtn = document.getElementById('backToTop');
+const whatsappBtn = document.querySelector('.whatsapp-cta');
+
+if (backToTopBtn || whatsappBtn) {
+    // Show/hide buttons on scroll
+    lenis.on('scroll', ({ scroll }) => {
+        // Back to Top logic
+        if (backToTopBtn) {
+            if (scroll > 500) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        }
+
+        // WhatsApp CTA logic
+        if (whatsappBtn) {
+            if (scroll > 300) {
+                whatsappBtn.classList.add('active');
+            } else {
+                whatsappBtn.classList.remove('active');
+            }
+        }
+    });
+
+    // Scroll to top on click
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            lenis.scrollTo(0, {
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            });
+        });
+    }
+}
