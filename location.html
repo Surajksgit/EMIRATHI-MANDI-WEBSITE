@@ -154,44 +154,75 @@
     </style>
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Emirathi's Mandi",
-      "image": "https://emirathimandi.com/logo/emirathiicon.png",
-      "@id": "https://emirathimandi.com/location.html",
-      "url": "https://emirathimandi.com/location.html",
-      "servesCuisine": "Arabian, Mandi",
-      "priceRange": "$$",
-      "department": [
-        {
-          "@type": "Restaurant",
-          "name": "Emirathi's Mandi Aluva",
-          "telephone": "+917025252559",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Paravoor kavala, Cochin International Airport RD",
-            "addressLocality": "Aluva, Ernakulam",
-            "addressRegion": "Kerala",
-            "postalCode": "683108",
-            "addressCountry": "IN"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Emirathi's Mandi",
+        "image": "https://emirathimandi.com/logo/emirathiicon.png",
+        "@id": "https://emirathimandi.com/location.html#restaurant",
+        "url": "https://emirathimandi.com/location.html",
+        "servesCuisine": "Arabian, Mandi",
+        "priceRange": "₹₹",
+        "hasMap": "https://www.google.com/maps/search/Emirathi+Mandi",
+        "subOrganization": [
+          {
+            "@type": "Restaurant",
+            "name": "Emirathi's Mandi Aluva",
+            "telephone": "+917025252559",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Paravoor kavala, Cochin International Airport RD",
+              "addressLocality": "Aluva, Ernakulam",
+              "addressRegion": "Kerala",
+              "postalCode": "683108",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 10.1076,
+              "longitude": 76.3511
+            }
+          },
+          {
+            "@type": "Restaurant",
+            "name": "Emirathi's Mandi Kuzhivelippady",
+            "telephone": "+917025252555",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Edapally Pukkattupady RD, Aysha bazar",
+              "addressLocality": "Kuzhivelippady, Ernakulam",
+              "addressRegion": "Kerala",
+              "postalCode": "683561",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 10.0526,
+              "longitude": 76.3564
+            }
           }
-        },
-        {
-          "@type": "Restaurant",
-          "name": "Emirathi's Mandi Kuzhivelippady",
-          "telephone": "+917025252555",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Edapally Pukkattupady RD, Aysha bazar",
-            "addressLocality": "Kuzhivelippady, Ernakulam",
-            "addressRegion": "Kerala",
-            "postalCode": "683561",
-            "addressCountry": "IN"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://emirathimandi.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Locations",
+            "item": "https://emirathimandi.com/location.html"
           }
-        }
-      ]
-    }
+        ]
+      }
+    ]
     </script>
 </head>
 <body>

@@ -197,6 +197,59 @@
             }
         }
     </style>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Menu",
+        "name": "Emirathi's Mandi Full Menu",
+        "mainEntityOfPage": "https://emirathimandi.com/menu.html",
+        "description": "Full menu of Emirathi's Mandi featuring authentic Arabian Mandi, Shawaya, and signature meat dishes.",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "Mandi",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Chicken Mandi",
+                "offers": { "@type": "Offer", "price": "690", "priceCurrency": "INR" }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Alfaham Mandi",
+                "offers": { "@type": "Offer", "price": "790", "priceCurrency": "INR" }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Beef Rib Mandi",
+                "offers": { "@type": "Offer", "price": "990", "priceCurrency": "INR" }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://emirathimandi.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Menu",
+            "item": "https://emirathimandi.com/menu.html"
+          }
+        ]
+      }
+    ]
+    </script>
 </head>
 <body>
     <!-- Custom Reactive Cursor -->

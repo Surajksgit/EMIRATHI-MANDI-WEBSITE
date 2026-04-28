@@ -837,3 +837,103 @@ h1, h2, h3, h4, h5, h6, .serif {
         height: 50px;
     }
 }
+
+/* FAQ Section Styles (Redesign) */
+.faq-section {
+    padding: 15vh 5%;
+    background-color: #0b0b0b;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.faq-header {
+    margin-bottom: 4rem;
+}
+
+.faq-main-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.faq-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+}
+
+.faq-accordion {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-question-btn {
+    width: 100%;
+    padding: 2.5rem 0;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 400;
+    cursor: none; /* Let custom cursor handle it */
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.faq-question-btn:hover {
+    color: var(--accent-color);
+}
+
+.plus-icon {
+    font-size: 1.8rem;
+    font-weight: 300;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.active .plus-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s ease;
+}
+
+.faq-item.active .faq-answer-container {
+    max-height: 200px; /* Adjust based on content */
+    padding-bottom: 2.5rem;
+}
+
+.faq-answer {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 85%;
+}
+
+@media (max-width: 768px) {
+    .faq-main-title {
+        font-size: 2.5rem;
+    }
+    .faq-question-btn {
+        font-size: 1.1rem;
+        padding: 2rem 0;
+    }
+}

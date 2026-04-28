@@ -38,45 +38,126 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Emirathi's Mandi",
-      "image": "https://emirathimandi.com/galary/emirathiimage.jpeg",
-      "@id": "https://emirathimandi.com",
-      "url": "https://emirathimandi.com",
-      "telephone": "+917025252559",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Paravoor kavala, Cochin International Airport RD",
-        "addressLocality": "Aluva, Ernakulam",
-        "addressRegion": "Kerala",
-        "postalCode": "683108",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 10.1076,
-        "longitude": 76.3511
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Emirathi's Mandi",
+        "image": [
+          "https://emirathimandi.com/galary/emirathiimage.jpeg",
+          "https://emirathimandi.com/galary/mandiabout.png",
+          "https://emirathimandi.com/galary/ambiance1.png"
         ],
-        "opens": "12:00",
-        "closes": "23:00"
+        "@id": "https://emirathimandi.com/#restaurant",
+        "url": "https://emirathimandi.com",
+        "telephone": "+917025252559",
+        "priceRange": "₹₹",
+        "menu": "https://emirathimandi.com/viewmenu.html",
+        "servesCuisine": ["Arabian", "Mandi", "Middle Eastern"],
+        "acceptsReservations": "true",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Paravoor kavala, Cochin International Airport RD",
+          "addressLocality": "Aluva, Ernakulam",
+          "addressRegion": "Kerala",
+          "postalCode": "683108",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.1076,
+          "longitude": 76.3511
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "12:00",
+          "closes": "23:00"
+        },
+        "sameAs": [
+          "https://www.instagram.com/emirathi_mandi/",
+          "https://www.facebook.com/emirathimandi/"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "1250"
+        }
       },
-      "menu": "https://emirathimandi.com/menu.html",
-      "servesCuisine": "Arabian, Mandi",
-      "priceRange": "$$"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://emirathimandi.com/#website",
+        "url": "https://emirathimandi.com",
+        "name": "Emirathi's Mandi",
+        "description": "Best Mandi in Ernakulam | Authentic Arabian Cuisine",
+        "publisher": {
+          "@id": "https://emirathimandi.com/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://emirathimandi.com/#organization",
+        "name": "Emirathi's Mandi",
+        "url": "https://emirathimandi.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://emirathimandi.com/logo/emirathiicon.png"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+917025252559",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best Mandi in Ernakulam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Emirathi's Mandi is widely considered the best Mandi in Ernakulam, offering authentic Arabian flavors, slow-roasted meat, and fragrant Basmati rice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is Emirathi's Mandi located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Emirathi's Mandi is located at Paravoor Kavala, Cochin International Airport Road, Aluva, Ernakulam, Kerala 683108."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the opening hours of Emirathi's Mandi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Emirathi's Mandi is open daily from 12:00 PM to 11:00 PM."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer Majlis seating?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we offer traditional Majlis seating for an authentic Arabian dining experience. You can book your Majlis by calling us or using our reservation page."
+            }
+          }
+        ]
+      }
+    ]
     </script>
 </head>
 <body>
@@ -305,6 +386,108 @@
                                         <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 5. FAQ Section -->
+            <section class="faq-section" id="faq">
+                <div class="container faq-container">
+                    <div class="faq-header">
+                        <h2 class="faq-main-title">FAQ</h2>
+                        <p class="faq-subtitle">Every question has an answer.</p>
+                    </div>
+                    
+                    <div class="faq-accordion">
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Which is the best Mandi in Ernakulam?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Emirathi's Mandi is renowned for being the best Mandi in Ernakulam, serving authentic Arabian flavors with slow-roasted meat and fragrant Basmati rice.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Do you offer Majlis seating?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Yes, we provide traditional Majlis seating to offer our guests an authentic Arabian dining atmosphere.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Where is Emirathi's Mandi located?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">We are located at Paravoor Kavala, Cochin International Airport Road, Aluva, Ernakulam, easily accessible from the NH.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>What are your signature dishes?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Our signature dishes include the Emirathi's Special Zesty Mandi, Beef Rib Mandi, and the authentic Alfaham Mandi.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Do you have parking facilities?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Yes, we provide ample parking space at both our Aluva and Kuzhivelippady branches to ensure a hassle-free dining experience for all our guests.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Do you offer parcel or takeaway services?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Yes, we provide ample parking space at both our Aluva and Kuzhivelippady branches to ensure a hassle-free dining experience for all our guests.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Is home delivery available?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Absolutely! You can find us on major delivery platforms or call us directly at +91 7025 252 559 for quick takeaway and home delivery services.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>Is your meat fresh and Halal?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Quality is our signature. We use 100% Halal-certified meat, sourced fresh daily and prepared using traditional slow-roasting methods to ensure maximum tenderness.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question-btn magnetic" data-strength="20">
+                                <span>What makes Emirathi’s Mandi different?</span>
+                                <span class="plus-icon">+</span>
+                            </button>
+                            <div class="faq-answer-container">
+                                <p class="faq-answer">Our secret lies in the underground pit roasting and our signature "Zesty" spice blend, which creates a unique smoky aroma you won't find anywhere else in Ernakulam.</p>
                             </div>
                         </div>
                     </div>
