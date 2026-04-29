@@ -196,6 +196,51 @@
                 padding-top: 10vh;
             }
         }
+
+        /* Footer Sliding Images Styles */
+        .footer {
+            position: relative;
+            overflow: hidden; /* Ensure images don't cause horizontal scroll */
+            padding-top: 10rem !important; /* Give space for images */
+        }
+
+        .footer-sliding-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide-img {
+            position: absolute;
+            bottom: 0;
+            width: clamp(200px, 25vw, 400px);
+            height: auto;
+            opacity: 0;
+            transition: transform 0.1s ease-out;
+        }
+
+        .left-img {
+            left: 0;
+            transform: translateX(-100%) rotate(-10deg);
+        }
+
+        .right-img {
+            right: 0;
+            transform: translateX(100%) rotate(10deg);
+        }
+
+        @media (max-width: 768px) {
+            .slide-img {
+                width: 150px;
+            }
+            .footer {
+                padding-top: 6rem !important;
+            }
+        }
     </style>
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -752,6 +797,12 @@
 
             <!-- Footer -->
             <footer class="footer" id="reservations">
+                <!-- Sliding Images Container -->
+                <div class="footer-sliding-images">
+                    <!-- <img src="galary/AImandi4.png" alt="Mandi rice" class="slide-img left-img"> -->
+                    <img src="galary/AImandi3.png" alt="Grilled chicken" class="slide-img right-img">
+                </div>
+
                 <h2 class="footer-title magnetic" data-strength="50">Book Majlis</h2>
                 <div class="footer-links">
                     <a href="#" class="magnetic" data-strength="20">Instagram</a>
@@ -801,6 +852,35 @@
         // Close via links
         links.forEach(link => {
             link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Footer Sliding Images Animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".left-img", {
+            scrollTrigger: {
+                trigger: ".footer",
+                start: "top bottom", 
+                end: "bottom bottom", 
+                scrub: 1.5,
+            },
+            x: "10%",
+            rotate: 15,
+            opacity: 1,
+            ease: "power2.out"
+        });
+
+        gsap.to(".right-img", {
+            scrollTrigger: {
+                trigger: ".footer",
+                start: "top bottom",
+                end: "bottom bottom",
+                scrub: 1.5,
+            },
+            x: "-10%",
+            rotate: -15,
+            opacity: 1,
+            ease: "power2.out"
         });
     </script>
 </body>
