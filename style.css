@@ -1016,12 +1016,13 @@ h1, h2, h3, h4, h5, h6, .serif {
     background-color: #050505;
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .order-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8vw;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5vw;
     align-items: center;
 }
 
@@ -1032,17 +1033,17 @@ h1, h2, h3, h4, h5, h6, .serif {
 .cta-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 3rem;
+    gap: 1.2rem;
+    margin-top: 3.5rem;
 }
 
 .cta-card {
     display: flex;
     align-items: center;
-    padding: 1.5rem 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
+    padding: 1.4rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 100px; /* More pill-shaped for premium feel */
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1057,14 +1058,13 @@ h1, h2, h3, h4, h5, h6, .serif {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05));
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03));
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
 .cta-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-5px);
 }
 
@@ -1073,28 +1073,24 @@ h1, h2, h3, h4, h5, h6, .serif {
 }
 
 .cta-card.zomato:hover {
-    border-color: #cb202d; /* Zomato Red */
-    box-shadow: 0 15px 40px rgba(203, 32, 45, 0.15);
+    border-color: #cb202d;
+    box-shadow: 0 15px 40px rgba(203, 32, 45, 0.1);
 }
 
 .cta-card.swiggy:hover {
-    border-color: #fc8019; /* Swiggy Orange */
-    box-shadow: 0 15px 40px rgba(252, 128, 25, 0.15);
+    border-color: #fc8019;
+    box-shadow: 0 15px 40px rgba(252, 128, 25, 0.1);
 }
 
 .cta-logo {
-    width: 80px;
+    width: 70px;
     height: auto;
     margin-right: 1.5rem;
     transition: transform 0.5s ease;
 }
 
 .cta-card:hover .cta-logo {
-    transform: scale(1.1);
-}
-
-.cta-logo.swiggy-logo {
-    width: 80px;
+    transform: scale(1.08);
 }
 
 .cta-text-wrapper {
@@ -1103,27 +1099,27 @@ h1, h2, h3, h4, h5, h6, .serif {
 
 .cta-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #888;
-    margin-bottom: 4px;
+    letter-spacing: 0.15em;
+    color: #666;
+    margin-bottom: 2px;
 }
 
 .cta-name {
     font-family: var(--font-sans);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
 }
 
 .cta-arrow {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     transition: all 0.5s ease;
 }
 
@@ -1135,26 +1131,81 @@ h1, h2, h3, h4, h5, h6, .serif {
 
 .order-image {
     position: relative;
-    height: 60vh;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .order-img-wrapper {
-    width: 100%;
+    position: relative;
     height: 100%;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px; /* Enhanced perspective */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.order-bg-img {
-    width: 100%;
+.phone-img {
     height: 100%;
-    object-fit: cover;
-    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.6));
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
 }
 
-.order-online:hover .order-bg-img {
-    transform: scale(1.05);
+.order-img-wrapper:hover .phone-img {
+    transform: rotateY(-8deg) rotateX(5deg) scale(1.02);
+    filter: drop-shadow(0 50px 100px rgba(0, 0, 0, 0.8));
+}
+
+.qr-code-overlay {
+    position: absolute;
+    top: 50.5%;
+    left: 50.2%;
+    transform: translate(-50%, -50%);
+    width: 52%;
+    aspect-ratio: 1/1;
+    background: white;
+    padding: 12px;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.order-img-wrapper:hover .qr-code-overlay {
+    transform: translate(-50%, -52%) scale(1.05); /* Slight lift */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.qr-img {
+    width: 85%;
+    height: auto;
+}
+
+.qr-text {
+    color: #000;
+    font-size: clamp(0.5rem, 0.8vw, 0.65rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 6px;
+    font-family: var(--font-sans);
+}
+
+/* Phone Popup Animation Initial State */
+.phone-reveal {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9) rotateX(15deg);
 }
 
 @media (min-width: 1024px) {
@@ -1166,27 +1217,60 @@ h1, h2, h3, h4, h5, h6, .serif {
 @media (max-width: 1024px) {
     .order-container {
         grid-template-columns: 1fr;
-        gap: 5rem;
+        gap: 6vh;
+        text-align: center;
+    }
+    
+    .order-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .body-text {
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .order-image {
-        height: 50vh;
-        order: -1;
+        height: 45vh;
+        order: -1; /* Image stays above on mobile */
+    }
+
+    .cta-grid {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .order-online {
+        padding: 10vh 5%;
+    }
+    
+    .order-image {
+        height: 38vh;
+    }
+
+    .qr-code-overlay {
+        padding: 8px;
     }
 }
 
 @media (max-width: 480px) {
-    .cta-name {
-        font-size: 1.4rem;
+    .order-image {
+        height: 32vh;
     }
     
     .cta-card {
-        padding: 1.2rem 1.5rem;
+        padding: 1.1rem 1.5rem;
     }
     
-    .cta-icon-wrapper {
-        width: 50px;
-        height: 50px;
-        margin-right: 1rem;
+    .cta-logo {
+        width: 60px;
+    }
+    
+    .cta-name {
+        font-size: 1rem;
     }
 }

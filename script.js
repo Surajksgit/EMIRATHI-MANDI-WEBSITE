@@ -264,6 +264,22 @@ gsap.from(".testimonial-card", {
     ease: "power4.out"
 });
 
+// E. Order Online Phone Reveal Animation
+gsap.to(".phone-reveal", {
+    scrollTrigger: {
+        trigger: ".order-online",
+        start: "top 60%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse"
+    },
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotateX: 0,
+    duration: 1.5,
+    ease: "back.out(1.7)" // Adds a nice "pop" overshoot
+});
+
 // Magnetic effect re-run for all magnetic items
 const magneticItems = document.querySelectorAll('.magnetic');
 magneticItems.forEach((el) => {
