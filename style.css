@@ -2,6 +2,7 @@
     --bg-color: #0b0b0b;
     --text-color: #f5f5f5;
     --accent-color: #d4af37;
+    --accent-color-1: #4b4b4bc8;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Inter', sans-serif;
     --cursor-size: 8px;
@@ -213,6 +214,77 @@ h1, h2, h3, h4, h5, h6, .serif {
     height: 120%;
     object-fit: cover;
     object-position: center;
+}
+
+/* Marquee Section */
+.marquee-container {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 6vh 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 5;
+}
+
+.marquee-row {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 1.5vh 0;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 4rem;
+    padding-right: 4rem;
+    animation: scroll-left 40s linear infinite;
+}
+
+.marquee-content.reverse {
+    animation: scroll-right 40s linear infinite;
+}
+
+.marquee-item {
+    font-family: var(--font-sans);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    text-transform: capitalize;
+    font-weight: 800;
+    color: var(--accent-color-1);
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 0 1rem;
+    opacity: 1;
+    transition: color 0.4s ease;
+    cursor: default;
+}
+
+.marquee-item:hover {
+    color: var(--accent-color);
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .marquee-container {
+        padding: 4vh 0;
+    }
+    .marquee-item {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+    .marquee-content {
+        gap: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 /* About / Cuisine Section */
