@@ -184,6 +184,42 @@
             font-weight: 500;
         }
 
+        /* Menu Category Navigation */
+        .menu-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 0 auto 5rem auto;
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: fit-content;
+        }
+
+        .menu-nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        .menu-nav-link:hover, .menu-nav-link.active {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
         @media (max-width: 968px) {
             .showcase-item, .showcase-item:nth-child(even) {
                 flex-direction: column;
@@ -200,6 +236,19 @@
             }
             .showcase-desc {
                 max-width: 100%;
+            }
+            .menu-nav {
+                gap: 0.5rem;
+                padding: 0.5rem;
+                top: 80px;
+                overflow-x: auto;
+                max-width: 95%;
+                justify-content: flex-start;
+                white-space: nowrap;
+            }
+            .menu-nav-link {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
             }
         }
 
@@ -395,7 +444,14 @@
             <!-- 2. Visual Menu Section -->
             <section class="visual-menu-section" id="visual-menu">
                 
-                <h2 class="category-title">Authentic Taste of Mandi</h2>
+                <!-- Menu Category Navigation -->
+                <div class="menu-nav">
+                    <a href="#mandi" class="menu-nav-link active">Mandi</a>
+                    <a href="#meat-only" class="menu-nav-link">Chicken / Beef Only</a>
+                    <a href="#seafood" class="menu-nav-link">Seafood</a>
+                </div>
+
+                <h2 class="category-title" id="mandi">Authentic Taste of Mandi</h2>
                 
                 <div class="showcase-container">
                     
@@ -663,7 +719,7 @@
                     <!-- Item 10 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
-                            <img src="galary/beefperiperimandi.png" alt="Beef Peri Peri Mandi - spicy tender beef with aromatic rice" class="menu-item-img">
+                            <img src="galary/beefperiperi.webp" alt="Beef Peri Peri Mandi - spicy tender beef with aromatic rice" class="menu-item-img">
                         </div>
                         <div class="showcase-content">
                             <h3 class="showcase-title">Beef Peri Peri Mandi</h3>
@@ -804,7 +860,12 @@
                             </div>
                         </div>
                     </div>
+                </div> <!-- End Mandi Showcase Container -->
 
+                <h2 class="category-title" id="meat-only">Chicken Only / Beef Only</h2>
+                
+                <div class="showcase-container">
+                    
                     <!-- Item 15 -->
                     <div class="showcase-item">
                         <div class="showcase-image-wrapper">
@@ -1210,8 +1271,53 @@
                             </div>
                         </div>
                     </div>
+                    </div> <!-- End Meat Only Showcase Container -->
 
-                </div>
+                    <h2 class="category-title" id="seafood">Seafood</h2>
+                    
+                    <div class="showcase-container">
+                        <!-- Item 29 -->
+                        <div class="showcase-item">
+                            <div class="showcase-image-wrapper">
+                                <img src="galary/fishthave.webp" alt="Fish Thava Fry - crispy and spicy pan-fried fish" class="menu-item-img">
+                            </div>
+                            <div class="showcase-content">
+                                <h3 class="showcase-title">Fish Thava Fry</h3>
+                                <p class="showcase-desc">Fresh catch of the day, marinated in our secret spice blend and pan-fried to crispy perfection on a traditional thava.</p>
+                                <div class="showcase-pricing">
+                                    <div class="price-row">
+                                        <span class="price-label">Full</span>
+                                        <span class="price-value">₹450</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">Half</span>
+                                        <span class="price-value small">₹200</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 30 -->
+                        <div class="showcase-item">
+                            <div class="showcase-image-wrapper">
+                                <img src="galary/kalanji.webp" alt="Kalanji Fish Fry - premium local fish delicacy" class="menu-item-img">
+                            </div>
+                            <div class="showcase-content">
+                                <h3 class="showcase-title">Kalanji Fish Fry</h3>
+                                <p class="showcase-desc">Premium Kalanji fish, known for its delicate texture, marinated with hand-ground spices and deep-fried for an authentic coastal experience.</p>
+                                <div class="showcase-pricing">
+                                    <div class="price-row">
+                                        <span class="price-label">Full</span>
+                                        <span class="price-value">₹750</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">Half</span>
+                                        <span class="price-value small">₹300</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Seafood Showcase Container -->
 
             </section>
 
@@ -1271,39 +1377,57 @@
                 const pricing = item.querySelector('.showcase-pricing');
                 
                 // Split title for animation
-                if (title) splitTextToSpans(title);
+                if (title && !title.querySelector('.word')) splitTextToSpans(title);
                 
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: item,
-                        start: "top 75%", // Trigger when top of item hits 75% down viewport
-                        toggleActions: "play none none reverse" // Play on scroll down, reverse on scroll up
+                        start: "top 85%", // Adjusted for better timing
+                        toggleActions: "play none none reverse"
                     }
                 });
                 
-                // 1. Reveal the entire wrapper
                 tl.to(item, {
                     y: 0,
                     opacity: 1,
                     duration: 0.8,
                     ease: "power3.out"
                 })
-                // 2. Split text reveal for the title words
                 .to(item.querySelectorAll('.showcase-title .word'), {
                     y: "0%",
                     opacity: 1,
                     duration: 0.8,
-                    stagger: 0.08,
+                    stagger: 0.05,
                     ease: "power4.out"
                 }, "-=0.4")
-                // 3. Fade in description and pricing
                 .to([desc, pricing], {
                     y: 0,
                     opacity: 1,
                     duration: 0.8,
-                    stagger: 0.15,
+                    stagger: 0.1,
                     ease: "power2.out"
                 }, "-=0.6");
+            });
+
+            // Update active nav link on scroll
+            const sections = document.querySelectorAll('h2.category-title');
+            const navLinks = document.querySelectorAll('.menu-nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= (sectionTop - 250)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
             });
         });
 
