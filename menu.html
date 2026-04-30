@@ -241,6 +241,59 @@
                 padding-top: 6rem !important;
             }
         }
+
+        /* Menu Category Navigation */
+        .menu-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 5rem;
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        .menu-nav-link:hover, .menu-nav-link.active {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .menu-nav {
+                gap: 0.5rem;
+                padding: 0.5rem;
+                top: 80px;
+                overflow-x: auto;
+                max-width: 90%;
+                justify-content: flex-start;
+                white-space: nowrap;
+            }
+            .menu-nav-link {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+        }
     </style>
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -370,8 +423,16 @@
             <section class="full-menu-section" id="full-menu">
                 <div class="menu-grid-container">
                     
+                    <!-- Menu Category Navigation -->
+                    <div class="menu-nav">
+                        <a href="#mandi" class="menu-nav-link active">Mandi</a>
+                        <a href="#chicken-only" class="menu-nav-link">Chicken Only</a>
+                        <a href="#seafood" class="menu-nav-link">Seafood</a>
+                        <a href="#beverages" class="menu-nav-link">Beverages</a>
+                    </div>
+
                     <!-- Mandi Section -->
-                    <h2 class="menu-category-title">MANDI</h2>
+                    <h2 class="menu-category-title" id="mandi">MANDI</h2>
                     
                     <div class="price-header">
                         <span class="item-col">Item</span>
@@ -583,7 +644,7 @@
 
 
                     <!-- Chicken Only Section -->
-                    <h2 class="menu-category-title" style="margin-top: 5rem;">CHICKEN ONLY / MEAT ONLY</h2>
+                    <h2 class="menu-category-title" id="chicken-only" style="margin-top: 5rem;">CHICKEN ONLY / MEAT ONLY</h2>
                     
                     <div class="price-header">
                         <span class="item-col">Item</span>
@@ -792,6 +853,187 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Seafood Section -->
+                    <h2 class="menu-category-title" id="seafood" style="margin-top: 5rem;">SEAFOOD</h2>
+                    
+                    <div class="price-header">
+                        <span class="item-col">Item</span>
+                        <div class="price-header-labels">
+                            <span>Full</span>
+                            <span>3/4</span>
+                            <span>Half</span>
+                            <span>Qtr</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-list">
+                        <!-- Item 01 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">01.</span>
+                                <span class="menu-item-name">Fish Thava Fry</span>
+                            </div>
+                            <div class="menu-item-prices">
+                                <span class="menu-item-price" data-label="Full">450</span>
+                                <span class="menu-item-price" data-label="3/4">-</span>
+                                <span class="menu-item-price" data-label="Half">200</span>
+                                <span class="menu-item-price" data-label="Qtr">-</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 02 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">02.</span>
+                                <span class="menu-item-name">Hamour Fish Mandi</span>
+                            </div>
+                            <div class="menu-item-prices">
+                                <span class="menu-item-price" data-label="Full">1200</span>
+                                <span class="menu-item-price" data-label="3/4">-</span>
+                                <span class="menu-item-price" data-label="Half">700</span>
+                                <span class="menu-item-price" data-label="Qtr">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 03 -->
+                        <!-- <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">03.</span>
+                                <span class="menu-item-name">King Fish Mandi</span>
+                            </div>
+                            <div class="menu-item-prices">
+                                <span class="menu-item-price" data-label="Full">1100</span>
+                                <span class="menu-item-price" data-label="3/4">-</span>
+                                <span class="menu-item-price" data-label="Half">650</span>
+                                <span class="menu-item-price" data-label="Qtr">-</span>
+                            </div>
+                        </div> -->
+
+                        <!-- Item 04 -->
+                        <!-- <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">04.</span>
+                                <span class="menu-item-name">Prawns Roast</span>
+                            </div>
+                            <div class="menu-item-prices">
+                                <span class="menu-item-price" data-label="Full">550</span>
+                                <span class="menu-item-price" data-label="3/4">-</span>
+                                <span class="menu-item-price" data-label="Half">320</span>
+                                <span class="menu-item-price" data-label="Qtr">-</span>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <!-- Beverages Section -->
+                    <h2 class="menu-category-title" id="beverages" style="margin-top: 5rem;">BEVERAGES</h2>
+                    
+                    <div class="price-header">
+                        <span class="item-col">Item</span>
+                        <div class="price-header-labels">
+                            <span>Price</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-list">
+                        <!-- Item 01 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">01.</span>
+                                <span class="menu-item-name">Fresh Lime</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">25</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 02 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">02.</span>
+                                <span class="menu-item-name">Mint Lime</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">30</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 03 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">03.</span>
+                                <span class="menu-item-name">Pineapple Lime</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">30</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 04 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">04.</span>
+                                <span class="menu-item-name">Pineapple Juice</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">50</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 05 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">05.</span>
+                                <span class="menu-item-name">Water Melon Juice</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">50</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 06 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">06.</span>
+                                <span class="menu-item-name">Avocado Shake</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">70</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 07 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">07.</span>
+                                <span class="menu-item-name">Muzambi Juice</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">70</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 08 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">08.</span>
+                                <span class="menu-item-name">Orange Juice</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">70</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 09 -->
+                        <div class="menu-list-item">
+                            <div class="menu-item-info">
+                                <span class="menu-item-num">09.</span>
+                                <span class="menu-item-name">Promegranate Juice</span>
+                            </div>
+                            <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
+                                <span class="menu-item-price" data-label="Price">70</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -881,6 +1123,28 @@
             rotate: -15,
             opacity: 1,
             ease: "power2.out"
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('h2.menu-category-title');
+        const navLinks = document.querySelectorAll('.menu-nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
