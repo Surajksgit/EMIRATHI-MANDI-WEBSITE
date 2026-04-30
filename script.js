@@ -280,6 +280,20 @@ gsap.to(".phone-reveal", {
     ease: "back.out(1.7)" // Adds a nice "pop" overshoot
 });
 
+// More Info Reveal Animation
+gsap.to(".reveal-info", {
+    scrollTrigger: {
+        trigger: ".more-info",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    stagger: 0.1,
+    ease: "power3.out"
+});
+
 // Magnetic effect re-run for all magnetic items
 const magneticItems = document.querySelectorAll('.magnetic');
 magneticItems.forEach((el) => {
