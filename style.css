@@ -424,6 +424,13 @@ h1, h2, h3, h4, h5, h6, .serif {
     font-weight: 300;
 }
 
+.menu-btns {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
 /* Footer Section */
 .footer {
     height: 100vh;
@@ -487,6 +494,11 @@ h1, h2, h3, h4, h5, h6, .serif {
     }
     .menu-panel {
         padding: 4rem 2.5rem;
+    }
+
+    .menu-btns {
+        gap: 2rem;
+        margin-top: 3rem;
     }
 }
 
