@@ -3,17 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locations & Contact | Emirathi's Mandi - Aluva & Kuzhivelippady</title>
-    <meta name="description" content="Visit Emirathi's Mandi at Aluva or Kuzhivelippady. Find directions, contact details, and experience authentic Arabian hospitality in Ernakulam.">
-    <meta name="keywords" content="Best Alfaham in Ernakulam, Best Mandi in Aluva, Arabian Food near kakkanad, Best Mandi near airport">
-    <link rel="canonical" href="https://emirathimandi.com/location.html">
+    <title>Privacy Policy | Emirathi's Mandi</title>
+    <meta name="description" content="Privacy Policy for Emirathi's Mandi. Learn how we collect, use, and protect your data.">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://emirathimandi.com/location.html">
-    <meta property="og:title" content="Our Locations | Emirathi's Mandi Ernakulam">
-    <meta property="og:description" content="Find us in Aluva and Kuzhivelippady. Get directions and contact us for reservations.">
-    <meta property="og:image" content="https://emirathimandi.com/logo/EM-LOGO.png">
     <!-- icon -->
     <link rel="icon" href="logo/EM-LOGO.png" type="image/png" sizes="128x128">
     <!-- Google Fonts -->
@@ -31,199 +23,70 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
     <style>
-        /* Specific styles for the location page */
-        .location-section {
-            padding: 5vh 5% 15vh 5%;
+        .legal-section {
+            padding: 15vh 5% 10vh 5%;
             background-color: var(--bg-color);
             position: relative;
             z-index: 2;
+            color: var(--text-color);
+            min-height: 100vh;
         }
 
-        .location-grid-container {
-            max-width: 1200px;
+        .legal-container {
+            max-width: 800px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            font-family: var(--font-sans);
+            line-height: 1.8;
+            padding-top: 5vh;
         }
 
-        .location-card {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 5rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: border-color 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .location-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 0;
-        }
-
-        .location-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.03);
-        }
-        
-        .location-card:hover::before {
-            opacity: 1;
-        }
-
-        .location-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .location-title {
+        .legal-title {
             font-family: var(--font-serif);
             font-size: 3rem;
-            margin-bottom: 2.5rem;
-            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-color);
         }
 
-        .location-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .location-text {
-            font-family: var(--font-sans);
-            font-size: 1.15rem;
-            color: #d0d0d0;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .location-phone {
+        .legal-content h2 {
             font-family: var(--font-serif);
-            font-size: 1.6rem;
-            color: #f5f5f5;
-            margin-top: 1rem;
-            display: inline-block;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
         }
-        
 
-        /* Hero tweaks */
-        .hero {
-            height: 100vh;
+        .legal-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
-        
-        .hero-img-container {
-            height: 60vh;
+
+        .legal-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
-        
-        @media (max-width: 900px) {
-            .location-grid-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero {
-                height: 50vh;
-            }
-            .hero-img-container {
-                height: 30vh;
-                margin-top: 5vh;
-            }
-            .location-section {
-                padding-top: 10vh;
-            }
-            .location-card {
-                padding: 3rem 2rem;
-            }
-            .location-title {
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-title {
                 font-size: 2.2rem;
+            }
+            .legal-content h2 {
+                font-size: 1.5rem;
+            }
+            .legal-section {
+                padding-top: 15vh;
             }
         }
     </style>
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Emirathi's Mandi",
-        "image": "https://emirathimandi.com/logo/EM-LOGO.png",
-        "@id": "https://emirathimandi.com/location.html#restaurant",
-        "url": "https://emirathimandi.com/location.html",
-        "servesCuisine": "Arabian, Mandi",
-        "priceRange": "₹₹",
-        "hasMap": "https://www.google.com/maps/search/Emirathi+Mandi",
-        "subOrganization": [
-          {
-            "@type": "Restaurant",
-            "name": "Emirathi's Mandi Aluva",
-            "telephone": "+917025252559",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Paravoor kavala, Cochin International Airport RD",
-              "addressLocality": "Aluva, Ernakulam",
-              "addressRegion": "Kerala",
-              "postalCode": "683108",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 10.1076,
-              "longitude": 76.3511
-            }
-          },
-          {
-            "@type": "Restaurant",
-            "name": "Emirathi's Mandi Kuzhivelippady",
-            "telephone": "+917025252555",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Edapally Pukkattupady RD, Aysha bazar",
-              "addressLocality": "Kuzhivelippady, Ernakulam",
-              "addressRegion": "Kerala",
-              "postalCode": "683561",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 10.0526,
-              "longitude": 76.3564
-            }
-          }
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://emirathimandi.com/index.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Locations",
-            "item": "https://emirathimandi.com/location.html"
-          }
-        ]
-      }
-    ]
-    </script>
 </head>
 <body>
     <!-- Custom Reactive Cursor -->
@@ -232,7 +95,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <a href="index.html" class="logo magnetic" data-strength="20">
-            <img src="logo/emirathiicon.png" alt="Emirathi's Mandi Logo" class="logo-img">
+            <img src="logo/EM-LOGO.png" alt="Emirathi's Mandi Logo" class="logo-img">
             <span class="logo-text">EMIRATHI'S MANDI</span>
         </a>
 
@@ -243,9 +106,9 @@
         <ul class="nav-links">
             <li><a href="index.html#about" class="magnetic" data-strength="20">About Us</a></li>
             <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
-            <li><a href="index.html#order" class="magnetic" data-strength="20">Order Online</a></li>
             <li><a href="viewmenu.html" class="magnetic" data-strength="20">Visual Menu</a></li>
             <li><a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a></li>
+            <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
             <li><a href="reservations.html" class="magnetic btn-primary" data-strength="40">Book Table</a></li>
         </ul>
     </nav>
@@ -261,18 +124,18 @@
         </button>
         <div class="mobile-menu-inner">
             <ul class="mobile-nav-links">
-                <li><a href="#about" class="mobile-link">About Us</a></li>
+                <li><a href="index.html#about" class="mobile-link">About Us</a></li>
                 <li><a href="menu.html" class="mobile-link">Menu</a></li>
-                <li><a href="index.html#order" class="mobile-link">Order Online</a></li>
                 <li><a href="viewmenu.html" class="mobile-link">Visual Menu</a></li>
                 <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
+                <li><a href="location.html" class="mobile-link">Location</a></li>
                 <li><a href="reservations.html" class="mobile-link btn-mobile-cta">Book Table</a></li>
             </ul>
     
             <div class="mobile-menu-footer">
                 <p class="footer-label">Follow Us</p>
                 <div class="mobile-socials">
-                    <a href="#">Instagram</a>
+                    <a href="https://www.instagram.com/emirathi_mandi/">Instagram</a>
                     <a href="#">Facebook</a>
                 </div>
             </div>
@@ -281,64 +144,55 @@
 
     <main id="smooth-wrapper">
         <div id="smooth-content">
-            <!-- 1. Hero Section -->
-            <section class="hero">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="line"><span class="word">Our</span></span>
-                        <span class="line"><span class="word">Locations</span></span>
-                    </h1>
-                </div>
-                <!-- Hero image that will scale up/parallax -->
-                <div class="hero-img-container">
-                    <img src="galary/emirathi_interior2.png" class="hero-img" alt="locations background">
+            <section class="legal-section" id="privacy">
+                <div class="legal-container">
+                    <h1 class="legal-title">Privacy Policy</h1>
+                    
+                    <div class="legal-content">
+                        <p>Last updated: May 3, 2026</p>
+                        
+                        <p>Welcome to Emirathi's Mandi. We value your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, use, and protect your information when you visit our website, use our services, or interact with us.</p>
+
+                        <h2>1. Information Collection</h2>
+                        <p>We may collect personal information that you voluntarily provide to us when you interact with our website. This includes:</p>
+                        <ul>
+                            <li><strong>Contact Information:</strong> Name, phone number, email address, and physical address.</li>
+                            <li><strong>Booking Details:</strong> Information provided through contact forms, table booking systems, or online ordering.</li>
+                        </ul>
+
+                        <h2>2. Usage of Data</h2>
+                        <p>The data we collect is used to ensure a seamless experience for you. Specifically, we use your information to:</p>
+                        <ul>
+                            <li>Process orders and confirm reservations.</li>
+                            <li>Communicate with you regarding your bookings or inquiries.</li>
+                            <li>Send promotional offers, updates, and news (only if you have opted in).</li>
+                            <li>Improve our website functionality and customer service.</li>
+                        </ul>
+
+                        <h2>3. Cookies & Tracking</h2>
+                        <p>To enhance site performance and your user experience, we use cookies and similar tracking technologies. Cookies help us understand how you interact with our website, track user sessions, and gather analytics. You can control cookie preferences through your browser settings, though disabling them may affect some site features.</p>
+
+                        <h2>4. Third-Party Disclosure</h2>
+                        <p>We do not sell, trade, or rent your personal information to others. We may share necessary data with trusted third parties who assist us in operating our business, such as:</p>
+                        <ul>
+                            <li>Delivery partners and logistics services.</li>
+                            <li>Website hosting and analytics providers.</li>
+                        </ul>
+                        <p>These third parties are obligated to keep your information confidential and secure.</p>
+
+                        <h2>5. Data Security</h2>
+                        <p>We implement a variety of security measures to maintain the safety of your personal information. We use secure servers and standard encryption protocols (e.g., SSL) to protect data transmitted to and from our site. However, no electronic transmission or storage is 100% secure, so we cannot guarantee absolute security.</p>
+
+                        <h2>6. User Rights</h2>
+                        <p>You have the right to access, update, or request the deletion of your stored personal data at any time. If you wish to exercise these rights or have questions about how your data is handled, please contact us at <a href="mailto:info@emirathimandi.com" style="color: var(--accent-color);">info@emirathimandi.com</a>.</p>
+                        
+                        <h2>7. Changes to This Policy</h2>
+                        <p>We may update this Privacy Policy periodically to reflect changes in our practices or relevant laws. We encourage you to review this page from time to time for any updates.</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- 2. Locations Section -->
-            <section class="location-section" id="locations">
-                <div class="location-grid-container">
-                    
-                    <!-- Aluva Location -->
-                    <div class="location-card">
-                        <div>
-                            <h2 class="location-title">Aluva</h2>
-                            <div class="location-details">
-                                <p class="location-text">
-                                    Paravoor kavala<br>
-                                    Cochin International Airport RD<br>
-                                    Ernakulam, Kerala - 683108
-                                </p>
-                                <a href="tel:+917025252559" class="location-phone magnetic" data-strength="10">+91 7025 252 559</a>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="https://maps.google.com/?q=Emirathi+Mandi+Aluva" target="_blank" class="magnetic btn-secondary" data-strength="20">Get Directions</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Kuzhivelippady Location -->
-                    <div class="location-card">
-                        <div>
-                            <h2 class="location-title">Kuzhivelippady</h2>
-                            <div class="location-details">
-                                <p class="location-text">
-                                    Edapally Pukkattupady RD<br>
-                                    Aysha bazar, Kuzhivelippady<br>
-                                    Ernakulam, Kerala - 683561
-                                </p>
-                                <a href="tel:+917025252555" class="location-phone magnetic" data-strength="10">+91 7025 252 555</a>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="https://maps.google.com/?q=Emirathi+Mandi+Kuzhivelippady" target="_blank" class="magnetic btn-secondary" data-strength="20">Get Directions</a>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- New Premium Footer -->
+            <!-- Premium Footer -->
             <footer class="footer-premium" id="reservations">
                 <!-- 1. Top CTA Section -->
                 <div class="footer-cta-section">
@@ -352,8 +206,7 @@
                             </div>
                             <p class="social-proof-text">500+ happy customers</p>
                         </div>
-                        <!-- add google icon -->
-                        <a href="https://share.google/XJO1jNHFBRDoQdlwz" class="btn-member magnetic" data-strength="30">
+                        <a href="https://share.google/XJO1jNHFBRDoQdlwz" class="btn-member magnetic" data-strength="30" target="_blank" rel="noopener noreferrer">
                             <img src="logo/google.png" alt="Google Icon" class="google-icon" width="30" height="30">
                             Find us on Google
                         </a>
@@ -408,7 +261,7 @@
                     <div class="container legal-wrapper">
                         <p class="copyright">©2026 EMIRATHI'S MANDI. ALL RIGHTS RESERVED.</p>
                         <div class="footer-bottom-socials">
-                            <a href="https://www.instagram.com/emirathi_mandi/">INSTAGRAM</a>
+                            <a href="https://www.instagram.com/emirathi_mandi/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
                             <a href="#">FACEBOOK</a>
                             <a href="#">TWITTER</a>
                         </div>
