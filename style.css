@@ -1536,40 +1536,7 @@ h1, h2, h3, h4, h5, h6, .serif {
     background: #444;
 }
 
-/* 3. Branding Section */
-.footer-bottom-branding {
-    position: relative;
-    padding: 5rem 0;
-    pointer-events: none;
-}
 
-.branding-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.huge-bg-text {
-    font-size: clamp(5rem, 25vw, 25rem);
-    line-height: 0.8;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.05);
-    margin: 0;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-}
-
-.large-star-icon {
-    width: clamp(100px, 15vw, 250px);
-    height: clamp(100px, 15vw, 250px);
-    color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 2rem;
-}
-
-.star-svg {
-    width: 100%;
-    height: 100%;
-}
 
 /* 4. Legal Bar */
 .footer-legal-bar {
@@ -1631,14 +1598,5 @@ h1, h2, h3, h4, h5, h6, .serif {
     }
     .footer-bottom-socials {
         justify-content: center;
-    }
-    .branding-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .large-star-icon {
-        margin-top: 3rem;
-        margin-bottom: 0;
     }
 }
