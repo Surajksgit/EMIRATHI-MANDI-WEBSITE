@@ -21,6 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
     
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="style.css">
+
     <!-- CSS (Internalized index.html styles for exact match) -->
     <style>
         :root {
@@ -86,12 +89,16 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 2.5rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            mix-blend-mode: difference;
+            mix-blend-mode: normal;
+            background: rgba(11, 11, 11, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .logo {
@@ -105,12 +112,13 @@
         .logo-text {
             font-family: var(--font-serif);
             color: var(--accent-color);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            font-weight: 400;
             letter-spacing: 0.05em;
         }
 
         .logo-img {
-            height: 60px;
+            height: 50px;
             width: auto;
             object-fit: contain;
         }
@@ -118,7 +126,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3.5rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
@@ -426,7 +434,6 @@
             .grid-asymmetric, .policy-grid {
                 grid-template-columns: 1fr;
             }
-            .nav-links { display: none; }
             .hero-img-container { width: 90%; }
             .booking-form { padding: 2rem; }
         }
@@ -733,6 +740,7 @@
             <li><a href="index.html#order" class="magnetic" data-strength="20">Order Online</a></li>
             <li><a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a></li>
             <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
+            <li><a href="reservations.html" class="magnetic btn-primary" data-strength="40">Book Table</a></li>
         </ul>
     </nav>
 
@@ -747,17 +755,18 @@
         </button>
         <div class="mobile-menu-inner">
             <ul class="mobile-nav-links">
-                <li><a href="#about" class="mobile-link">About Us</a></li>
+                <li><a href="index.html#about" class="mobile-link">About Us</a></li>
                 <li><a href="menu.html" class="mobile-link">Menu</a></li>
                 <li><a href="index.html#order" class="mobile-link">Order Online</a></li>
                 <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
                 <li><a href="location.html" class="mobile-link">Location</a></li>
+                <li><a href="reservations.html" class="mobile-link btn-mobile-cta">Book Table</a></li>
             </ul>
     
             <div class="mobile-menu-footer">
                 <p class="footer-label">Follow Us</p>
                 <div class="mobile-socials">
-                    <a href="#">Instagram</a>
+                    <a href="https://www.instagram.com/emirathi_mandi/">Instagram</a>
                     <a href="#">Facebook</a>
                 </div>
             </div>
@@ -884,22 +893,78 @@
                 </div>
             </section>
 
-            <footer class="footer">
-                <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">EMIRATHI'S</h2>
-                <h2 class="footer-title magnetic" data-strength="60" onclick="window.scrollTo({top:0, behavior:'smooth'})">MANDI</h2>
-                
-                <div style="margin-top: 3rem; text-align: center;">
-                    <p style="font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.4; margin-bottom: 1.5rem;">CONTACT & LOCATION</p>
-                    <p style="font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 0.5rem;">+91 7025 252 559</p>
-                    <p style="opacity: 0.6; font-size: 0.9rem;">Paruvur Kavala,NH-47, Opposite Simple Energy, Kerala</p>
+            <!-- New Premium Footer -->
+            <footer class="footer-premium" id="footer-section">
+                <!-- 1. Top CTA Section -->
+                <div class="footer-cta-section">
+                    <div class="container">
+                        <h2 class="footer-cta-title">Taste the Tradition.<br>Join the Emirathi's Family.</h2>
+                        <div class="footer-social-proof">
+                            <div class="avatar-group">
+                                <img src="galary/avatar1.webp" alt="Guest" class="avatar">
+                                <img src="galary/avatar2.webp" alt="Guest" class="avatar">
+                                <img src="galary/avatar3.webp" alt="Guest" class="avatar">
+                            </div>
+                            <p class="social-proof-text">500+ happy customers</p>
+                        </div>
+                        <!-- add google icon -->
+                        <a href="https://share.google/XJO1jNHFBRDoQdlwz" class="btn-member magnetic" data-strength="30">
+                            <img src="logo/google.png" alt="Google Icon" class="google-icon" width="30" height="30">
+                            Find us on Google
+                        </a>
+                    </div>
                 </div>
 
-                <div style=" display: flex; gap: 3rem; opacity: 0.5;">
-                    <a href="index.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">BACK HOME</a>
-                    <a href="menu.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">THE MENU</a>
-                    <a href="location.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">FIND US</a>
-                    <a href="privacy.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">PRIVACY POLICY</a>
-                    <a href="terms.html" class="magnetic" style="color: white; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em;">TERMS</a>
+                <!-- 2. Main Links Grid -->
+                <div class="footer-main-grid">
+                    <div class="container footer-grid-wrapper">
+                        <div class="footer-col">
+                            <h4 class="footer-col-title">Quicklinks</h4>
+                            <ul class="footer-list">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html#about">About Us</a></li>
+                                <li><a href="menu.html">Menu</a></li>
+                                <li><a href="gallerypage.html">Gallery</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4 class="footer-col-title">Company</h4>
+                            <ul class="footer-list">
+                                <li><a href="reservations.html">Reservations</a></li>
+                                <li><a href="location.html">Location</a></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4 class="footer-col-title">Contact</h4>
+                            <ul class="footer-list">
+                                <li><a href="index.html#faq">FAQ</a></li>
+                                <li><a href="tel:+917025252559">+91 7025 252 559</a></li>
+                                <li><a href="mailto:info@emirathimandi.com">@Support</a></li>
+                                <li class="footer-address">Paravoor Kavala, Cochin International Airport Rd, Aluva, Ernakulam, Kerala 683108</li>
+                            </ul>
+                        </div>
+                        <div class="footer-col map-col">
+                            <h4 class="footer-col-title">Find Us</h4>
+                            <div class="footer-map-wrapper">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63498.36912314041!2d76.26400466343021!3d10.120831727180418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f7488a38ff3%3A0xc305f0855e636845!2sEmirathi%E2%80%99s%20mandi%20aluva!5e1!3m2!1sen!2sin!4v1778065117745!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Emirathi's Mandi Location"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Legal / Social Bar -->
+                <div class="footer-legal-bar">
+                    <div class="container legal-wrapper">
+                        <p class="copyright">©2026 EMIRATHI'S MANDI. ALL RIGHTS RESERVED.</p>
+                        <div class="footer-bottom-socials">
+                            <a href="https://www.instagram.com/emirathi_mandi/">INSTAGRAM</a>
+                            <a href="#">FACEBOOK</a>
+                            <a href="#">TWITTER</a>
+                        </div>
+                        <p class="dev-credit">A PREMIUM EXPERIENCE BY EMIRATHI'S MANDI</p>
+                    </div>
                 </div>
             </footer>
         </div>
