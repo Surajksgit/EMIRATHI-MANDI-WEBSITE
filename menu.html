@@ -294,6 +294,64 @@
                 padding: 0.4rem 1rem;
             }
         }
+        .minimalist-order-cta {
+            padding: 10vh 5%;
+            background-color: var(--bg-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .minimal-cta-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .minimalist-order-cta .cta-title {
+            font-size: 1.5rem;
+            font-family: var(--font-sans);
+            text-transform: capitalize;
+            letter-spacing: 0.2em;
+            margin-bottom: 3rem;
+            opacity: 0.6;
+        }
+
+        .minimal-cta-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .minimal-cta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .minimal-cta-logo {
+            height: 40px;
+            width: auto;
+            filter: grayscale(1) brightness(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .minimal-cta-item:hover .minimal-cta-logo {
+            filter: grayscale(0) brightness(1);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .minimal-cta-grid {
+                gap: 2.5rem;
+            }
+            .minimal-cta-logo {
+                height: 30px;
+            }
+        }
     </style>
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -367,7 +425,7 @@
         <ul class="nav-links">
             <li><a href="index.html#about" class="magnetic" data-strength="20">About Us</a></li>
             <li><a href="viewmenu.html" class="magnetic" data-strength="20">Visual Menu</a></li>
-            <li><a href="index.html#order" class="magnetic" data-strength="20">Order Online</a></li>
+            <li><a href="#order" class="magnetic" data-strength="20">Order Online</a></li>
             <li><a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a></li>
             <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
             <li><a href="reservations.html" class="magnetic btn-primary" data-strength="40">Book Table</a></li>
@@ -387,7 +445,7 @@
             <ul class="mobile-nav-links">
                 <li><a href="#about" class="mobile-link">About Us</a></li>
                 <li><a href="viewmenu.html" class="mobile-link">Visual Menu</a></li>
-                <li><a href="index.html#order" class="mobile-link">Order Online</a></li>
+                <li><a href="#order" class="mobile-link">Order Online</a></li>
                 <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
                 <li><a href="location.html" class="mobile-link">Location</a></li>
                 <li><a href="reservations.html" class="mobile-link btn-mobile-cta">Book Table</a></li>
@@ -1065,6 +1123,23 @@
                             <div class="menu-item-prices" style="grid-template-columns: repeat(1, 90px);">
                                 <span class="menu-item-price" data-label="Price">70</span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimalist Order CTA -->
+            <section class="minimalist-order-cta" id="order">
+                <div class="container">
+                    <div class="minimal-cta-wrapper">
+                        <h3 class="cta-title">We Are Available On</h3>
+                        <div class="minimal-cta-grid">
+                            <a href="https://www.zomato.com/kochi/emirathis-mandi-aluva/order" target="_blank" rel="noopener noreferrer" class="minimal-cta-item zomato magnetic" data-strength="20">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Zomato_Logo.svg" alt="Zomato" class="minimal-cta-logo">
+                            </a>
+                            <a href="https://www.swiggy.com/city/kochi/emirathis-mandhi-aluva-rest1336613" target="_blank" rel="noopener noreferrer" class="minimal-cta-item swiggy magnetic" data-strength="20">
+                                <img src="logo/swiggy.png" alt="Swiggy" class="minimal-cta-logo">
+                            </a>
                         </div>
                     </div>
                 </div>
