@@ -945,11 +945,16 @@
                                 <li class="footer-address">Paravoor Kavala, Cochin International Airport Rd, Aluva, Ernakulam, Kerala 683108</li>
                             </ul>
                         </div>
-                        <div class="footer-col map-col">
-                            <h4 class="footer-col-title">Find Us</h4>
-                            <div class="footer-map-wrapper">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63498.36912314041!2d76.26400466343021!3d10.120831727180418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f7488a38ff3%3A0xc305f0855e636845!2sEmirathi%E2%80%99s%20mandi%20aluva!5e1!3m2!1sen!2sin!4v1778065117745!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Emirathi's Mandi Location"></iframe>
+                        <div class="footer-col timing-col">
+                            <h4 class="footer-col-title">Opening Hours</h4>
+                            <div class="timing-status">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Checking status...</span>
                             </div>
+                            <ul class="footer-list">
+                                <li>Monday - Sunday</li>
+                                <li>12:00 PM - 12:00 AM</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1116,6 +1121,45 @@
         links.forEach(link => {
             link.addEventListener('click', () => toggleMenu(false));
         });
+
+
+        // Live Opening Status Logic
+        function updateOpeningStatus() {
+            const statusDots = document.querySelectorAll('.status-dot');
+            const statusTexts = document.querySelectorAll('.status-text');
+            
+            if (statusDots.length === 0) return;
+    
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const currentTime = hours + minutes / 60;
+            
+            // Open from 12:00 PM (12.0) to 12:00 AM (24.0)
+            const isOpen = currentTime >= 12 && currentTime < 24;
+
+            statusDots.forEach(dot => {
+                if (isOpen) {
+                    dot.classList.add('open');  
+                } else {
+                    dot.classList.remove('open');
+                }
+            });
+
+            statusTexts.forEach(text => {
+                if (isOpen) {
+                    text.textContent = "Open Now";
+                    text.style.color = "#00d26a";
+                } else {
+                    text.textContent = "Closed Now";
+                    text.style.color = "#ff4b4b";
+                }
+            });
+        }
+
+        // Initial call and update every minute
+        updateOpeningStatus();
+        setInterval(updateOpeningStatus, 60000);
     </script>
 </body>
 </html>

@@ -376,3 +376,41 @@ faqItems.forEach(item => {
         });
     }
 });
+
+// 7. Live Opening Status Logic
+function updateOpeningStatus() {
+    const statusDots = document.querySelectorAll('.status-dot');
+    const statusTexts = document.querySelectorAll('.status-text');
+    
+    if (statusDots.length === 0) return;
+    
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours + minutes / 60;
+    
+    // Open from 12:00 PM (12.0) to 12:00 AM (24.0)
+    const isOpen = currentTime >= 12 && currentTime < 24;
+
+    statusDots.forEach(dot => {
+        if (isOpen) {
+            dot.classList.add('open');
+        } else {
+            dot.classList.remove('open');
+        }
+    });
+
+    statusTexts.forEach(text => {
+        if (isOpen) {
+            text.textContent = "Open Now";
+            text.style.color = "#00d26a";
+        } else {
+            text.textContent = "Closed Now";
+            text.style.color = "#ff4b4b";
+        }
+    });
+}
+
+// Initial call and update every minute
+updateOpeningStatus();
+setInterval(updateOpeningStatus, 60000);

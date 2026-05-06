@@ -1510,6 +1510,46 @@ h1, h2, h3, h4, h5, h6, .serif {
     cursor: default;
 }
 
+/* Timing Status Styles */
+.timing-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff4b4b; /* Closed by default */
+    transition: background-color 0.4s ease;
+}
+
+.status-dot.open {
+    background-color: #00d26a; /* Open */
+    box-shadow: 0 0 10px rgba(0, 210, 106, 0.4);
+    animation: pulse-status 2s infinite;
+}
+
+@keyframes pulse-status {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.timing-col .footer-list li {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
 /* Footer Map Column */
 .map-col {
     display: flex;
