@@ -280,6 +280,33 @@ gsap.to(".phone-reveal", {
     ease: "back.out(1.7)" // Adds a nice "pop" overshoot
 });
 
+// Floating Decorative Images for Order Online
+gsap.to(".float-img-left", {
+    scrollTrigger: {
+        trigger: ".order-online",
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+    },
+    opacity: 0.8,
+    x: 0,
+    rotate: 0,
+    duration: 1.5,
+    ease: "power3.out"
+});
+
+gsap.to(".float-img-right", {
+    scrollTrigger: {
+        trigger: ".order-online",
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+    },
+    opacity: 0.8,
+    x: 0,
+    rotate: 0,
+    duration: 1.5,
+    ease: "power3.out"
+});
+
 // More Info Reveal Animation
 gsap.to(".reveal-info", {
     scrollTrigger: {

@@ -1036,6 +1036,36 @@ h1, h2, h3, h4, h5, h6, .serif {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Decorative floating images for Order Online */
+.float-img-left, .float-img-right {
+    position: absolute;
+    width: clamp(200px, 20vw, 400px);
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+.float-img-left {
+    left: -5%;
+    top: 10%;
+    transform: translateX(-100px) rotate(-15deg);
+}
+
+.float-img-right {
+    right: -5%;
+    bottom: 5%;
+    transform: translateX(100px) rotate(15deg);
+}
+
+@media (max-width: 1024px) {
+    .float-img-left, .float-img-right {
+        display: none; /* Hide on small screens to avoid clutter */
+    }
+}
+
 .order-container {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
