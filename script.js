@@ -264,8 +264,8 @@ gsap.from(".testimonial-card", {
     ease: "power4.out"
 });
 
-// E. Order Online Phone Reveal Animation
-gsap.to(".phone-reveal", {
+// E. Order Online Fork Reveal Animation
+gsap.to(".fork-reveal", {
     scrollTrigger: {
         trigger: ".order-online",
         start: "top 60%",

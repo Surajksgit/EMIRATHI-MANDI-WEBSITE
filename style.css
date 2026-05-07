@@ -1029,7 +1029,7 @@ h1, h2, h3, h4, h5, h6, .serif {
 
 /* Order Online Section Styles */
 .order-online {
-    padding: 15vh 5%;
+    padding: 15vh 5% 0 5%;
     background-color: #050505;
     position: relative;
     overflow: hidden;
@@ -1178,10 +1178,10 @@ h1, h2, h3, h4, h5, h6, .serif {
 
 .order-image {
     position: relative;
-    height: 65vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* Lowered to bottom */
 }
 
 .order-img-wrapper {
@@ -1191,66 +1191,22 @@ h1, h2, h3, h4, h5, h6, .serif {
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1500px; /* Enhanced perspective */
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.phone-img {
+.fork-img {
     height: 100%;
     width: auto;
-    max-width: 100%;
+    max-width: none;
     object-fit: contain;
     filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.6));
     z-index: 1;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
 }
 
-.order-img-wrapper:hover .phone-img {
-    transform: rotateY(-8deg) rotateX(5deg) scale(1.02);
-    filter: drop-shadow(0 50px 100px rgba(0, 0, 0, 0.8));
-}
 
-.qr-code-overlay {
-    position: absolute;
-    top: 50.5%;
-    left: 50.2%;
-    transform: translate(-50%, -50%);
-    width: 52%;
-    aspect-ratio: 1/1;
-    background: white;
-    padding: 12px;
-    border-radius: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    z-index: 2;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
-}
 
-.order-img-wrapper:hover .qr-code-overlay {
-    transform: translate(-50%, -52%) scale(1.05); /* Slight lift */
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-}
 
-.qr-img {
-    width: 85%;
-    height: auto;
-}
-
-.qr-text {
-    color: #000;
-    font-size: clamp(0.5rem, 0.8vw, 0.65rem);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 6px;
-    font-family: var(--font-sans);
-}
-
-/* Phone Popup Animation Initial State */
-.phone-reveal {
+/* Fork Popup Animation Initial State */
+.fork-reveal {
     opacity: 0;
     transform: translateY(80px) scale(0.9) rotateX(15deg);
 }
