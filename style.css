@@ -1078,102 +1078,61 @@ h1, h2, h3, h4, h5, h6, .serif {
 }
 
 .cta-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    display: flex;
+    gap: 3rem;
     margin-top: 3.5rem;
+    flex-wrap: wrap;
 }
 
 .cta-card {
     display: flex;
     align-items: center;
-    padding: 1.4rem 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 100px; /* More pill-shaped for premium feel */
+    gap: 15px;
+    padding: 0.8rem 0;
     text-decoration: none;
     color: var(--text-color);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    overflow: hidden;
-}
-
-.cta-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03));
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 .cta-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-5px);
-}
-
-.cta-card:hover::before {
-    opacity: 1;
+    border-bottom-color: var(--accent-color);
+    transform: translateX(5px);
 }
 
 .cta-card.zomato:hover {
-    border-color: #cb202d;
-    box-shadow: 0 15px 40px rgba(203, 32, 45, 0.1);
+    border-bottom-color: #cb202d;
 }
 
 .cta-card.swiggy:hover {
-    border-color: #fc8019;
-    box-shadow: 0 15px 40px rgba(252, 128, 25, 0.1);
+    border-bottom-color: #fc8019;
 }
 
 .cta-logo {
-    width: 70px;
+    width: 32px;
     height: auto;
-    margin-right: 1.5rem;
-    transition: transform 0.5s ease;
+    filter: grayscale(1) brightness(1.2);
+    transition: all 0.4s ease;
 }
 
 .cta-card:hover .cta-logo {
-    transform: scale(1.08);
-}
-
-.cta-text-wrapper {
-    flex: 1;
-}
-
-.cta-label {
-    display: block;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #666;
-    margin-bottom: 2px;
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.1);
 }
 
 .cta-name {
     font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a0a0a0;
+    transition: color 0.3s ease;
 }
 
-.cta-arrow {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
-    transition: all 0.5s ease;
-}
-
-.cta-card:hover .cta-arrow {
-    background: var(--text-color);
-    color: var(--bg-color);
-    transform: translateX(5px);
+.cta-card:hover .cta-name {
+    color: var(--text-color);
 }
 
 .order-image {
