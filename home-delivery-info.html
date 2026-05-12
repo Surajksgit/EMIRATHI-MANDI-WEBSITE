@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Delivery Information | Emirathi's Mandi</title>
+    <meta name="description" content="Understand our home delivery process, radius, charges, and estimated times. We offer fast delivery within 5km of Emirathi's Mandi in Ernakulam.">
+    <link rel="canonical" href="https://emirathimandi.com/home-delivery-info.html">
+    
+    <!-- icon -->
+    <link rel="icon" href="logo/EM-LOGO.png" type="image/png" sizes="128x128">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+    <style>
+        :root {
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-glow: rgba(245, 158, 11, 0.2);
+        }
+
+        .delivery-info-section {
+            padding: 10vh 5% 15vh 5%;
+            background-color: var(--bg-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .info-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-header p {
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid Layout */
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .delivery-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 3rem 2rem;
+            border-radius: 2rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .delivery-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+
+        .delivery-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 1.2rem;
+        }
+
+        .delivery-card p {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .delivery-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .delivery-card ul li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #d1d1d1;
+        }
+
+        .delivery-card ul li svg {
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        /* Table Styling */
+        .checklist-section {
+            margin-top: 8rem;
+        }
+
+        .checklist-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 2rem;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-sans);
+        }
+
+        th {
+            text-align: left;
+            padding: 1.5rem 2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        td {
+            padding: 1.5rem 2rem;
+            color: #d1d1d1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 1.1rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: white;
+        }
+
+        /* Note/Alert Styling */
+        .peak-note {
+            margin-top: 4rem;
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent);
+            border-left: 4px solid var(--accent-color);
+            padding: 2.5rem;
+            border-radius: 0 2rem 2rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .peak-note svg {
+            color: var(--accent-color);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .peak-note-content h4 {
+            font-family: var(--font-sans);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .peak-note-content p {
+            color: #d1d1d1;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .delivery-info-section {
+                padding: 15vh 5% 10vh 5%;
+            }
+            .info-header {
+                margin-bottom: 4rem;
+            }
+            .delivery-card {
+                padding: 2.5rem 1.5rem;
+            }
+            th, td {
+                padding: 1.2rem 1rem;
+                font-size: 0.9rem;
+            }
+            .peak-note {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Reactive Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo magnetic" data-strength="20">
+            <img src="logo/EM-LOGO.png" alt="Emirathi's Mandi Logo" class="logo-img">
+            <span class="logo-text">EMIRATHI'S MANDI</span>
+        </a>
+
+        <button class="menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html#about" class="magnetic" data-strength="20">About Us</a></li>
+            <li><a href="menu.html" class="magnetic" data-strength="20">Menu</a></li>
+            <li><a href="index.html#order" class="magnetic" data-strength="20">Order Online</a></li>
+            <li><a href="gallerypage.html" class="magnetic" data-strength="20">Gallery</a></li>
+            <li><a href="location.html" class="magnetic" data-strength="20">Location</a></li>
+            <li><a href="reservations.html" class="magnetic btn-primary" data-strength="40">Book Table</a></li>
+        </ul>
+    </nav>
+
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="close-menu-btn" id="mobile-close" aria-label="Close Menu">
+            <span>CLOSE</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="mobile-menu-inner">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html#about" class="mobile-link">About Us</a></li>
+                <li><a href="menu.html" class="mobile-link">Menu</a></li>
+                <li><a href="index.html#order" class="mobile-link">Order Online</a></li>
+                <li><a href="gallerypage.html" class="mobile-link">Gallery</a></li>
+                <li><a href="location.html" class="mobile-link">Location</a></li>
+                <li><a href="reservations.html" class="mobile-link btn-mobile-cta">Book Table</a></li>
+            </ul>
+    
+            <div class="mobile-menu-footer">
+                <p class="footer-label">Follow Us</p>
+                <div class="mobile-socials">
+                    <a href="https://www.instagram.com/emirathi_mandi/">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero Section -->
+            <section class="hero" style="height: 60vh;">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word">Home Delivery</span></span>
+                        
+                    </h1>
+                </div>
+                <div class="hero-img-container" style="height: 40vh;">
+                    <img src="galary/ambiance1.png" class="hero-img" alt="Emirathi's Mandi Ambiance">
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="delivery-info-section">
+                <div class="info-container">
+                    <div class="info-header">
+                        <h2 class="reveal-text">Customer Ordering Instructions</h2>
+                        <p class="reveal-text">Help us provide you with the best service by understanding our process and setting the right expectations for your delicious Mandi experience.</p>
+                    </div>
+
+                    <div class="delivery-grid">
+                        <!-- Radius & Min Order -->
+                        <div class="delivery-card reveal-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M4.93 4.93l2.83 2.83"></path><path d="M16.24 16.24l2.83 2.83"></path><path d="M2 12h4"></path><path d="M18 12h4"></path><path d="M4.93 19.07l2.83-2.83"></path><path d="M16.24 7.76l2.83-2.83"></path></svg>
+                            </div>
+                            <h3>Service Scope</h3>
+                            <ul>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span><strong>Radius:</strong> Within 5km of restaurant.</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span><strong>Min Order:</strong> ₹300 required.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Delivery Charges -->
+                        <div class="delivery-card reveal-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            </div>
+                            <h3>Delivery Charges</h3>
+                            <ul>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span><strong>0–2 km:</strong> FREE delivery.</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span><strong>2–4 km:</strong> Flat ₹20 fee.</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span><strong>4–5 km:</strong> Flat ₹30 fee.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Time & Location -->
+                        <div class="delivery-card reveal-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <h3>Time & Accuracy</h3>
+                            <p>Most deliveries are completed within <strong>30–45 minutes</strong>.</p>
+                            <p style="margin-top: 1rem; font-size: 0.95rem;">Please provide a specific landmark and ensure your GPS pin is accurate to help our riders find you quickly.</p>
+                        </div>
+                    </div>
+
+                    <div class="delivery-grid">
+                        <!-- Dispatch -->
+                        <div class="delivery-card reveal-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </div>
+                            <h3>Dispatch & Routing</h3>
+                            <p><strong>Batching:</strong> We optimize routes by batching orders within the same 5km sector to ensure freshness and efficiency.</p>
+                        </div>
+
+                        <!-- Payment -->
+                        <div class="delivery-card reveal-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                            </div>
+                            <h3>Payment Options</h3>
+                            <p><strong>COD:</strong> Our riders carry sufficient change for cash payments.</p>
+                            <p style="margin-top: 1rem;"><strong>Digital:</strong> GPay, PhonePe, and other UPI methods accepted via QR code.</p>
+                        </div>
+                    </div>
+
+                    <!-- Checklist Table -->
+                    <div class="checklist-section">
+                        <h2 class="checklist-title reveal-text">Delivery Zone Checklist</h2>
+                        <div class="table-wrapper reveal-card">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Distance</th>
+                                        <th>Expected Time</th>
+                                        <th>Delivery Fee</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0 - 2 km</td>
+                                        <td>20 - 25 mins</td>
+                                        <td>FREE</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 - 4 km</td>
+                                        <td>25 - 35 mins</td>
+                                        <td>₹20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4 - 5 km</td>
+                                        <td>35 - 45 mins</td>
+                                        <td>₹30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="peak-note reveal-card">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            <div class="peak-note-content">
+                                <h4>Important Note</h4>
+                                <p>During peak hours (<strong>7:00 PM – 10:00 PM</strong>) or heavy rain, delivery times may extend by 15–20 minutes. We will inform you at the time of order confirmation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer-premium" id="reservations">
+                <div class="footer-cta-section">
+                    <div class="container">
+                        <h2 class="footer-cta-title">Taste the Tradition.<br>Join the Emirathi's Family.</h2>
+                        <div class="footer-social-proof">
+                            <div class="avatar-group">
+                                <img src="galary/avatar1.webp" alt="Guest" class="avatar">
+                                <img src="galary/avatar2.webp" alt="Guest" class="avatar">
+                                <img src="galary/avatar3.webp" alt="Guest" class="avatar">
+                            </div>
+                            <p class="social-proof-text">500+ happy customers</p>
+                        </div>
+                        <a href="https://share.google/XJO1jNHFBRDoQdlwz" class="btn-member magnetic" data-strength="30">
+                            <img src="logo/google.png" alt="Google Icon" class="google-icon" width="30" height="30">
+                            Find us on Google
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-main-grid">
+                    <div class="container footer-grid-wrapper">
+                        <div class="footer-col">
+                            <h4 class="footer-col-title">Quicklinks</h4>
+                            <ul class="footer-list">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html#about">About Us</a></li>
+                                <li><a href="menu.html">Menu</a></li>
+                                <li><a href="gallerypage.html">Gallery</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4 class="footer-col-title">Company</h4>
+                            <ul class="footer-list">
+                                <li><a href="reservations.html">Reservations</a></li>
+                                <li><a href="location.html">Location</a></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4 class="footer-col-title">Contact</h4>
+                            <ul class="footer-list">
+                                <li><a href="index.html#faq">FAQ</a></li>
+                                <li><a href="tel:+917025252559">+91 7025 252 559 (Aluva)</a></li>
+                                <li><a href="tel:+917025252555">+91 7025 252 555 (Kuzhivelippady)</a></li>
+                                <li><a href="mailto:info@emirathimandi.in">@Support</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col timing-col">
+                            <h4 class="footer-col-title">Opening Hours</h4>
+                            <div class="timing-status">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Open Now</span>
+                            </div>
+                            <ul class="footer-list">
+                                <li>Monday - Sunday</li>
+                                <li>12:00 PM - 12:00 AM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-legal-bar">
+                    <div class="container legal-wrapper">
+                        <p class="copyright">©2026 EMIRATHI'S MANDI. ALL RIGHTS RESERVED.</p>
+                        <div class="footer-bottom-socials">
+                            <a href="https://www.instagram.com/emirathi_mandi/">INSTAGRAM</a>
+                            <a href="#">FACEBOOK</a>
+                        </div>
+                        <p class="dev-credit">A PREMIUM EXPERIENCE BY EMIRATHI'S MANDI</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Parallax
+        gsap.to(".hero-img", {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Reveal animations
+        gsap.utils.toArray(".reveal-text").forEach(text => {
+            gsap.from(text, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top 85%"
+                }
+            });
+        });
+
+        gsap.utils.toArray(".reveal-card").forEach((card, i) => {
+            gsap.from(card, {
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%"
+                }
+            });
+        });
+
+        // Mobile Menu Logic
+        const toggle = document.getElementById('mobile-toggle');
+        const closeBtn = document.getElementById('mobile-close');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = (state) => {
+            const isOpen = state !== undefined ? state : !menu.classList.contains('active');
+            menu.classList.toggle('active', isOpen);
+            toggle.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        toggle.addEventListener('click', () => toggleMenu());
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        links.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+    </script>
+</body>
+</html>
